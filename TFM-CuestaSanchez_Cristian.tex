@@ -1,0 +1,603 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Memoria en LaTeX para la Trabajo Fin de Master
+%%
+%% Por Cristian Cuesta Sánchez <cristian.cs.contact@gmail.com>
+%%     Instituto de Estudios de Posgrado
+%%     Universidad de Córdoba
+%%
+%%
+%% Construido a partir de las plantillas:
+%%     https://github.com/gregoriorobles/plantilla-memoria
+%%     https://github.com/skgsergio/Portada-UPM-ETSIINF
+%%
+%% Para obtener PDF, ejecuta en el terminal:
+%%   ./compilar_pdf.sh
+%% (las imágenes deben ir en PNG o JPG)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, 12pt]{book}
+%\usepackage[T1]{fontenc}
+\usepackage{listings}       % Para código formateado
+\usepackage[utf8]{inputenc} %
+\usepackage[T1]{fontenc}    % Fuentes   
+\usepackage[hidelinks=true,pdfborder={000}]{hyperref}  % Para referencias cruzadas
+\usepackage[left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry} % Márgenes recomendados
+\usepackage{times}
+\usepackage[english, spanish, es-noshorthands, es-tabla]{babel} % Idiomas
+\usepackage[spanish]{translator}
+\usepackage{tikz}           % Para elementos gráficos
+\usepackage{url}            % Para definir URLs
+\usepackage[style=ieee, backend=biber]{biblatex} % Bibliografía en formato IEEE
+%\usepackage[dvipdfm]{graphicx}
+%\usepackage{graphicx}
+\usepackage{float}          % H para posicionar figuras
+\usepackage[nottoc, notlot, notlof, notindex]{tocbibind} % Opciones de índice
+\usepackage{multirow} % Celdas que ocupan varias filas en una tabla
+\usepackage{multicol} % Celdas que ocupan varias columnas en una tabla
+\usepackage{tabularx} % Ancho definido de tablas y columnas
+% Color en tablas
+\usepackage{graphicx}
+\usepackage{epsfig}
+%\usepackage{color}
+\usepackage{array}
+\usepackage{booktabs}
+%\usepackage[table]{xcolor}
+\usepackage{hhline}
+\usepackage{colortbl}
+\definecolor{lightgray}{gray}{0.9}
+% Bordes gruesos
+\newlength{\Oldarrayrulewidth}
+\newcommand{\Cline}[2]{%
+  \noalign{\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}}%
+  \noalign{\global\setlength{\arrayrulewidth}{#1}}\cline{#2}%
+  \noalign{\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}}}
+%\usepackage[notref,color]{showkeys}
+\usepackage{titling}
+\usepackage{sectsty}
+\usepackage{fancyhdr}
+\usepackage{portada}
+
+% Formato de numeración para las secciones
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection . \arabic{subsection} }
+
+% Formato numeración notas de pie de página
+% .\renewcommand\footnoterule{}
+\renewcommand{\thefootnote}{\roman{footnote}}
+
+%Para conseguir que en las páginas en blanco no ponga cabeceras
+\makeatletter
+\def\clearpage{%
+  \ifvmode
+    \ifnum \@dbltopnum =\m@ne
+      \ifdim \pagetotal <\topskip
+        \hbox{}
+      \fi
+    \fi
+  \fi
+  \newpage
+  \thispagestyle{empty}
+  \write\m@ne{}
+  \vbox{}
+  \penalty -\@Mi
+}
+\makeatother
+
+%\bibliography{\jobname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PORTADA 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{Memoria Proyecto Fin de Máster}
+\author{Cristian Cuesta Sánchez}
+\date{Julio de 2020}
+
+%% INFO PORTADA
+\Universidad{Universidad de Córdoba}  % Por omisión: Universidad de Sevilla
+\Escuela{Instituto de Estudios de Posgrado}  % Por omisión: Escuela Politécnica Superior
+\Director{José Manuel Palomares Muñoz}
+\Titulacion{Máster Dual en Industria 4.0}
+\Trabajo{Trabajo Fin de Máster}  % Por omisión: Trabajo de Fin de Grado
+\TituloTrabajo{Adaptación de un Supermercado a la Industria 4.0}
+\Lugar{Córdoba} % Por omisión: Sevilla
+
+
+
+\renewcommand{\baselinestretch}{1.5}  %% Interlineado
+
+\begin{document}
+
+
+
+
+
+
+
+\lhead[]{}
+\chead[]{}
+\rhead[]{}
+\renewcommand{\headrulewidth}{0pt}
+
+\lfoot[\thepage]{}
+\cfoot[]{}
+\rfoot[]{}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{
+\fancyhead[L]{}
+\fancyhead[C]{}
+\fancyhead[R]{}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+\pagestyle{fancy}
+
+
+
+
+
+
+
+
+
+
+\renewcommand{\refname}{Bibliografía}  %% Renombrando
+\renewcommand{\appendixname}{Apéndice}
+
+\maketitle
+
+\newpage
+\mbox{}
+\thispagestyle{empty} % para que no se numere esta pagina
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Para firmar 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \clearpage
+ \pagenumbering{gobble}
+ \chapter*{}
+
+ \vspace{-4cm}
+ \begin{center}
+ \LARGE
+ \textbf \trabajo
+
+ \vspace{1cm}
+ \large
+ \titulotrabajo
+
+ \vspace{1cm}
+ \large
+ \textbf{Autor :} \theauthor \\
+ \textbf{Tutor :} \director
+
+ \end{center}
+
+ \vspace{1cm}
+ La defensa del presente \trabajo\ se realizó el día \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 2020, siendo calificada por el siguiente tribunal:
+
+
+ \vspace{0.5cm}
+ \textbf{Presidente:}
+
+ \vspace{1.2cm}
+ \textbf{Secretario:}
+
+ \vspace{1.2cm}
+ \textbf{Vocal:}
+
+ \vspace{1.2cm}
+ \textbf{Suplente 1:}
+
+ \vspace{1.2cm}
+ \textbf{Suplente 2:}
+
+
+ \vspace{0.5cm}
+ y habiendo obtenido la siguiente calificación:
+
+ \vspace{1cm}
+ \textbf{Calificación:}
+
+
+ \vspace{1cm}
+ \begin{flushright}
+ En \lugar, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 2020
+ \end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Dedicatoria 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+ \chapter*{}
+  % para comenzar la numeración de paginas en números romanos
+ \begin{flushright}
+ \textit{Dedicado a \\
+ mi familia / mi abuelo / mi abuela}
+ \end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Agradecimientos 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \input{./0-INICIO/00-agradecimientos}
+ %\chapter*{Agradecimientos}
+ %\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el Índice
+ %\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado 
+
+ %Agradecimientos tras importación. Aquí vienen los agradecimientos\ldots Aunque está bien acordarse de la pareja, no hay que olvidarse de dar las gracias a tu madre, que aunque a veces no lo parezca disfrutará tanto de tus logros como tú\ldots 
+ %Además, la pareja quizás no sea para siempre, pero tu madre sí.
+ %\pagenumbering{Roman}
+
+
+ %%%% Índice de contenidos
+ \tableofcontents 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Resumen 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \input{./0-INICIO/01-resumen}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  ABSTRACT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \input{./0-INICIO/02-abstract}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ÍNDICES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Los índices se generan automáticamente.
+%  Lo único que tienes que hacer es elegir cuáles quieren que se generen,
+%  y comentar/descomentar esa instrucción de LaTeX.
+
+ 
+ \addcontentsline{toc}{chapter}{\listfigurename}
+ %%%% Índice de figuras
+ \cleardoublepage
+ %\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
+ \listoffigures % indice de figuras
+ %%%% Índice de tablas
+ %\cleardoublepage
+ %\addcontentsline{toc}{chapter}{Lista de tablas} % para que aparezca en el indice de contenidos
+ %\listoftables % indice de tablas
+
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INTRODUCCIÓN, OBJETIVOS, METODOLOGÍA y PLANIFICACIÓN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Diseño header y footer genérico
+\lhead[\leftmark]{}
+\chead[]{}
+\rhead[]{\thechapter. \rightmark}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\lfoot[\thepage]{\theauthor}
+\cfoot[]{}
+\rfoot[]{\thepage}
+\renewcommand{\footrulewidth}{0.5pt}
+
+% Diseño de pagina de portada de capítulo
+\fancypagestyle{plain}{
+\fancyhead[L]{}
+\fancyhead[C]{}
+\fancyhead[R]{\leftmark}
+\fancyfoot[L]{\theauthor}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+}
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
+\renewcommand{\sectionmark}[1]{ \markright{#1}{} }
+
+\input{./1-CAPITULOS/00-Introduccion}
+
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\input{./1-CAPITULOS/01-Estado del arte}
+
+\cleardoublepage
+\chapter{Desarrollo del proyecto}
+\label{chap:desarrollo}
+indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
+\section{Programación iPro}
+\label{sec:programacionipro}
+indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
+\section{Diseño Pantalla para el control}
+\label{sec:programacionpantalla}
+indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
+\section{Elaboración de librerías en Kiconex}
+\label{sec:librerias}
+indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
+\section{Programación dispositivo wireless}
+\label{sec:programacionesp32}
+indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
+
+
+\cleardoublepage
+\chapter{Pruebas y Resultados}
+\label{chap:resultados}
+indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
+
+
+\cleardoublepage
+\chapter{Puesta en marcha}
+\label{chap:puestaEnMarcha}
+indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
+
+
+\cleardoublepage
+\chapter{Conclusiones y Trabajos Futuros}
+\label{chap:conclusiones}
+indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
+
+
+\cleardoublepage
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % OBJETIVOS %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \cleardoublepage % empezamos en p�gina impar
+% \chapter{Objetivos} % t�tulo del cap�tulo (se muestra)
+% \label{chap:objetivos} % identificador del cap�tulo (no se muestra, es para poder referenciarlo)
+
+% \section{Objetivo general} % t�tulo de secci�n (se muestra)
+% \label{sec:objetivo-general} % identificador de secci�n (no se muestra, es para poder referenciarla)
+
+% Aqu� vendr�a el objetivo general en una frase:
+% Mi trabajo fin de grado consiste en crear de una herramienta de an�lisis de los comentarios jocosos en repositorios de software libre alojados en la plataforma GitHub.
+
+% Recuerda que los objetivos siempre vienen en infinitivo.
+
+
+% \section{Objetivos espec�ficos}
+% \label{sec:objetivos-especificos}
+
+% Los objetivos espec�ficos se pueden entender como las tareas en las que se ha desglosado el objetivo general.
+% Y, s�, tambi�n vienen en infinitivo.
+
+
+% \section{Planificaci�n temporal}
+% \label{sec:planificacion-temporal}
+
+% A m� me gusta que aqu� pong�is una descripci�n de lo que os ha llevado realizar el trabajo.
+% Hay gente que a�ade un diagrama de GANTT.
+% Lo importante es que quede claro cu�nto tiempo llevas (tiempo natural, p.ej., 6 meses) y a qu� nivel de esfuerzo (p.ej., principalmente los fines de semana).
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % ESTADO DEL ARTE %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \cleardoublepage
+% \chapter{Estado del arte}
+% \label{chap:estado}
+
+% Descripci�n de las tecnolog�as que utilizas en tu trabajo. 
+% Con dos o tres p�rrafos por cada tecnolog�a, vale. 
+% Se supone que aqu� viene todo lo que no has hecho t�.
+
+% Puedes citar libros, como el de Bonabeau et al., sobre procesos estigm�rgicos~\cite{bonabeau:_swarm}. 
+% Me encantan los procesos estigm�rgicos.
+% Deber�as leer m�s sobre ellos.
+% Pero quiz�s no ahora, que tenemos que terminar la memoria para sacarnos por fin el t�tulo.
+% Nota que el \~ \ a�ade un espacio en blanco, pero no deja que exista un salto de l�nea. 
+% Imprescindible ponerlo para las citas.
+
+% Citar es important�simo en textos cient�fico-t�cnicos. 
+% Porque no partimos de cero.
+% Es m�s, partir de cero es de tontos; lo suyo es aprovecharse de lo ya existente para construir encima y hacer cosas m�s sofisticadas.
+% �D�nde puedo encontrar textos cient�ficos que referenciar?
+% Un buen sitio es Google Scholar\footnote{\url{http://scholar.google.com}}.
+% Por ejemplo, si buscas por ``stigmergy libre software'' para encontrar trabajo sobre software libre y el concepto de estigmergia (�te he comentado que me gusta el concepto de estigmergia ya?), encontrar�s un art�culo que escrib� hace tiempo cuyo t�tulo es ``Self-organized development in libre software: a model based on the stigmergy concept''.
+% Si pulsas sobre las comillas dobles (entre la estrella y el ``citado por ...'', justo debajo del extracto del resumen del art�culo, te saldr� una ventana emergente con c�mo citar.
+% Abajo a la derecha, aparece un enlace BibTeX.
+% P�lsalo y encontrar�s la referencia en formato BibTeX, tal que as�:
+
+% {\footnotesize
+% \begin{verbatim}
+% @inproceedings{robles2005self,
+%   title={Self-organized development in libre software:
+%          a model based on the stigmergy concept},
+%   author={Robles, Gregorio and Merelo, Juan Juli\'an 
+%           and Gonz\'alez-Barahona, Jes\'us M.},
+%   booktitle={ProSim'05},
+%   year={2005}
+% }
+% \end{verbatim}
+% }
+
+% Copia el texto en BibTeX y p�galo en el fichero \texttt{memoria.bib}, que es donde est�n las referencias bibliogr�ficas.
+% Para incluir la referencia en el texto de la memoria, deber�s citarlo, como hemos hecho antes con~\cite{bonabeau:_swarm}, lo que pasa es que en vez de el identificador de la cita anterior (bonabeau:\_swarm), tendr�s que poner el nuevo (robles2005self).
+% Compila el fichero \texttt{memoria.tex} (\texttt{pdflatex memoria.tex}), a�ade la bibliograf�a (\texttt{bibtex memoria.aux}) y vuelve a compilar \texttt{memoria.tex} (\texttt{pdflatex memoria.tex})\ldots y \emph{voil�} �tenemos una nueva cita!
+
+% Tambi�n existe la posibilidad de poner notas al pie de p�gina, por ejemplo, una para indicarte que visite la p�gina de LibreSoft\footnote{\url{http://www.libresoft.es}}.
+
+
+
+% \section{Secci�n 1} 
+% \label{sec:seccion1}
+
+% Hemos hablado de c�mo incluir figuras.
+% Pero no hemos dicho nada de tablas.
+% A m� me gustan las tablas.
+% Mucho.
+% Aqu� un ejemplo de tabla, la Tabla~\ref{tabla:ejemplo} (siento ser pesado, pero nota c�mo he puesto la referencia).
+
+% \begin{table}
+%  \begin{center}
+%   \begin{tabular}{ | l | c | r |} % tenemos tres colummnas, la primera alineada a la izquierda (l), la segunda al centro (c) y la tercera a la derecha (r). El | indica que entre las columnas habr� una l�nea separadora.
+%     \hline
+%     Uno & 2 & 3 \\ \hline % el hline nos da una l�nea vertical
+%     Cuatro & 5 & 6 \\ \hline
+%     Siete & 8 & 9 \\
+%     \hline
+%   \end{tabular}
+%   \label{tabla:ejemplo}
+%   \caption{Ejemplo de tabla. Aqu� viene una peque�a descripci�n (el \emph{caption}) del contenido de la tabla. Si la tabla no es autoexplicativa, siempre viene bien aclararla aqu�.}
+%  \end{center}
+% \end{table}
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % DISE�O E IMPLEMENTACI�N %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \cleardoublepage
+% \chapter{Dise�o e implementaci�n}
+
+% Aqu� viene todo lo que has hecho t� (tecnol�gicamente). 
+% Puedes entrar hasta el detalle. 
+% Es la parte m�s importante de la memoria, porque describe lo que has hecho t�.
+% Eso s�, normalmente aconsejo no poner c�digo, sino diagramas.
+
+% \section{Arquitectura general} 
+% \label{sec:arquitectura}
+
+% Si tu proyecto es un software, siempre es bueno poner la arquitectura (que es c�mo se estructura tu programa a ``vista de p�jaro'').
+
+% Por ejemplo, puedes verlo en la figura~\ref{fig:arquitectura}.
+% \LaTeX \ pone las figuras donde mejor cuadran. 
+% Y eso quiere decir que quiz�s no lo haga donde lo hemos puesto...
+% Eso no es malo.
+% A veces queda un poco raro, pero es la filosof�a de \LaTeX: t� al contenido, que yo me encargo de la maquetaci�n.
+
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=9cm, keepaspectratio]{img/arquitectura}
+%   \caption{Estructura del parser b�sico.}
+%   \label{fig:arquitectura}
+% \end{figure}
+
+% Recuerda que toda figura que a�adas a tu memoria debe ser explicada.
+% S�, aunque te parezca evidente lo que se ve en la figura~\ref{fig:arquitectura}, la figura en s� solamente es un apoyo a tu texto.
+% As� que explica lo que se ve en la figura, haciendo referencia a la misma tal y como ves aqu�.
+% Por ejemplo: En la figura~\ref{fig:arquitectura} se puede ver que la estructura del \emph{parser} b�sico, que consta de seis componentes diferentes: los datos se obtienen de la red, y seg�n el tipo de dato, se pasar� a un \emph{parser} espec�fico y bla, bla, bla\ldots
+
+% Si utilizas una base de datos, no te olvides de incluir tambi�n un diagrama de entidad-relaci�n.
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % RESULTADOS %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \cleardoublepage
+% \chapter{Resultados}
+
+% En este cap�tulo se incluyen los resultados de tu trabajo fin de grado.
+
+% Si es una herramienta de an�lisis lo que has realizado, aqu� puedes poner ejemplos de haberla utilizado para que se vea su utilidad.
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % CONCLUSIONES %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \cleardoublepage
+% \chapter{Conclusiones}
+% \label{chap:conclusiones}
+
+
+% \section{Consecuci�n de objetivos}
+% \label{sec:consecucion-objetivos}
+
+% Esta secci�n es la secci�n espejo de las dos primeras del cap�tulo de objetivos, donde se planteaba el objetivo general y se elaboraban los espec�ficos.
+
+% Es aqu� donde hay que debatir qu� se ha conseguido y qu� no. 
+% Cuando algo no se ha conseguido, se ha de justificar, en t�rminos de qu� problemas se han encontrado y qu� medidas se han tomado para mitigar esos problemas.
+
+% Y si has llegado hasta aqu�, siempre es bueno pasarle el corrector ortogr�fico, que las erratas quedan fatal en la memoria final.
+% Para eso, en Linux tenemos aspell, que se ejecuta de la siguiente manera desde la l�nea de \emph{shell}:
+
+% \begin{verbatim}
+%   aspell --lang=es_ES -c memoria.tex
+% \end{verbatim}
+
+% \section{Aplicaci�n de lo aprendido}
+% \label{sec:aplicacion}
+
+% Aqu� viene lo que has aprendido durante el Grado/M�ster y que has aplicado en el TFG/TFM. Una buena idea es poner las asignaturas m�s relacionadas y comentar en un p�rrafo los conocimientos y habilidades puestos en pr�ctica.
+
+% \begin{enumerate}
+%   \item a
+%   \item b
+% \end{enumerate}
+
+
+% \section{Lecciones aprendidas}
+% \label{sec:lecciones_aprendidas}
+
+% Aqu� viene lo que has aprendido en el Trabajo Fin de Grado/M�ster.
+
+% \begin{enumerate}
+%   \item Aqu� viene uno.
+%   \item Aqu� viene oto.
+% \end{enumerate}
+
+
+% \section{Trabajos futuros}
+% \label{sec:trabajos_futuros}
+
+% Ning�n proyecto ni software se termina, as� que aqu� vienen ideas y funcionalidades que estar�a bien tener implementadas en el futuro.
+
+% Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % AP�NDICE(S) %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \cleardoublepage
+% \appendix
+% \chapter{Manual de usuario}
+% \label{app:manual}
+
+% Esto es un ap�ndice.
+% Si has creado una aplicaci�n, siempre viene bien tener un manual de usuario.
+% Pues ponlo aqu�.
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % BIBLIOGRAFIA %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \cleardoublepage
+
+% % Las siguientes dos instrucciones es todo lo que necesitas
+% % para incluir las citas en la memoria
+% \bibliographystyle{abbrv}
+% \bibliography{memoria}  % memoria.bib es el nombre del fichero que contiene
+% % las referencias bibliogr�ficas. Abre ese fichero y mira el formato que tiene,
+% % que se conoce como BibTeX. Hay muchos sitios que exportan referencias en
+% % formato BibTeX. Prueba a buscar en http://scholar.google.com por referencias
+% % y ver�s que lo puedes hacer de manera sencilla.
+% % M�s informaci�n: 
+% % http://texblog.org/2014/04/22/using-google-scholar-to-download-bibtex-citations/
+
+
+\end{document}
