@@ -65,8 +65,10 @@ Los modelos se diferencian en el tamaño (10 DIN o 4 DIN) y en el número de ent
 \begin{table}[h]
   %\centering
   \begin{center}
+    \setlength\arrayrulewidth{2pt}
     \begin{tabular}{ r !{\vrule width 2pt} c | c !{\vrule width 2pt} c | c !{\vrule width 2pt} }
-      \Cline{2pt}{2-5}
+      %\Cline{2pt}{2-5}
+      \hhline{*{1}{~}|*{4}{-}}
       \multirow{2}{*} & \multicolumn{2}{c!{\vrule width 2pt}}{\cellcolor{lightgray}Controlador} & \multicolumn{2}{c!{\vrule width 2pt}}{\cellcolor{lightgray}Módulo de Expansión}   \\ \cline{2-5}
       & \textbf{IPG208} & \textbf{IPG215} & \textbf{IPX208} & \textbf{IPX215} \\ \Cline{2pt}{1-1} \cline{2-5}
       \multicolumn{1}{!{\vrule width 2pt}r!{\vrule width 2pt}}{\textbf{Entradas analógicas}} & 5 & 10 & 5 & 10 \\
