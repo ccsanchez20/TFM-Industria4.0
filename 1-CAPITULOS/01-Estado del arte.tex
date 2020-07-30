@@ -103,13 +103,23 @@ Para la programación del \textit{iPro} se emplea el software \textit{ISaGRAF}\f
   \item (\textbf{FC}) Diagrama de flujo 
 \end{itemize}
 
-Para comenzar a realizar un programa se parte de una plantilla ya preparada previamente por kiconex para configurar entradas, salidas, parámetros, alarmas, avisos, etc.. Es por ello que primero es necesario conocer las especificaciones del sistema a programar. La Figura xxx representa un ejemplo de configuración de entradas analógicas. Como se puede ver, hay un vector que representa las entradas, y para cada una de ellas se especifica la configuración posible y el uso destinado.
+Para comenzar a realizar un programa se parte de una plantilla ya preparada previamente por kiconex para configurar entradas, salidas, parámetros, alarmas, avisos, etc.. Es por ello que primero es necesario conocer las especificaciones del sistema a programar. La \hyperref[figura:AOisagraf]{Figura~\ref{figura:AOisagraf}} representa un ejemplo de configuración de entradas analógicas. Como se puede ver, hay un vector que representa las entradas, y para cada una de ellas se especifica la configuración posible y el uso destinado.
 
-XXX-FIGURAPROGRAMA
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/planoSupermercado}
+  \caption{Aspecto configuración entradas analógicas ISaGRAF}
+  \label{figura:AOisagraf}
+\end{figure}
 
-A cada variable de parámetro, alarma, aviso, estado y entradas/salidas se le asigna una dirección de registro, como se puede ver en la Figura xxx. Lo habitual es destinar distintos rangos de direcciones a cada tipo de variable.
+A cada variable de parámetro, alarma, aviso, estado y entradas/salidas se le asigna una dirección de registro, como se puede ver en la \hyperref[figura:variablesIsagraf]{Figura~\ref{figura:variablesIsagraf}}. Lo habitual es destinar distintos rangos de direcciones a cada tipo de variable.
 
-XXX-FIGURATABLAREGISTROS
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/planoSupermercado}
+  \caption{Aspecto tabla de variables en ISaGRAF}
+  \label{figura:variablesIsagraf}
+\end{figure}
 
 \subsection{Configuración de la pantalla}
 \label{subsec:displayconfig}
@@ -127,9 +137,14 @@ Para la configuración de la pantalla, se emplea \textit{Visoprog}, un software 
 
 Para usar este programa, en primer lugar se importa un fichero de registros generados por \textit{ISaGRAF}. Así es como \textit{Visoprog} los conoce y permite que el usuario interactúe con los mismos en el proceso de navegación por la pantalla, habiendo configurado previamente dicha interacción.
 
-\textit{Visoprog} tiene también una sección destinada a textos estándar, así se puede cambiar un texto en un solo sitio, y no en los cincuenta sitios en los que se está empleando. La Figura xxx representa el aspecto de la interfaz del programa.
+\textit{Visoprog} tiene también una sección destinada a textos estándar, así se puede cambiar un texto en un solo sitio, y no en los cincuenta sitios en los que se está empleando. La \hyperref[figura:interfazVisoprog]{Figura~\ref{figura:interfazVisoprog}} representa el aspecto de la interfaz del programa.
 
-XXX-FIGURAVISOPROG
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/planoSupermercado}
+  \caption{Aspecto interfaz Visoprog}
+  \label{figura:interfazVisoprog}
+\end{figure}
 
 \section{Kiconex}
 \label{sec:kiconex}
@@ -143,6 +158,14 @@ Como ya se ha mencionado en la \hyperref[chap:intro]{introducción}, kiconex es 
   \item \textbf{Diagramas} para introducir un plano del edificio y sobre ese plano ver la temperatura de las salas y, por ejemplo, encender y apagar.
   \item \textbf{Alarmas} con posibilidad recibir alertas en caso de fallo del equipo. 
 \end{itemize}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/redKiconex}
+  \caption{Red kiconex}
+  \label{figura:redKiconex}
+\end{figure}
+
 Para su funcionamiento, kiconex se compone de los siguiente elementos:
 \begin{enumerate}
   \item \textbf{Servidor en la nube}, donde se almacenan los datos.
@@ -152,34 +175,75 @@ Para su funcionamiento, kiconex se compone de los siguiente elementos:
   \item \textbf{Kiwi}: aún no está en venta, ya que se trata del dispositivo inalámbrico que se ha desarrollado en este proyecto, pero el objetivo es su actuación como esclavo Modbus, recibiendo mensajes del maestro \textit{kibox} a través de TCP-IP. \textit{Kiwi} retransmite estos mensajes actuando como maestro, a los dispositivos de frío y clima (esclavos). Es decir, \textit{kiwi} es un maestro-esclavo: maestro de cara a los equipos y esclavo de cara al \textit{kibox}.
 \end{enumerate}
 
-xxx-figuraredkiconex
 
-La plataforma de supervisión, para poder comunicarse con los controles de los equipos de frío y clima, necesita conocer sus registros. Para ello, en la plataforma existe un apartado llamado "librerías", en el cual se pueden ver y crear los mapeados de registros de los controles que se necesiten. En la Figura xxx se puede ver el aspecto de una librería en la plataforma.
 
-xxx-figuralibreria
+La plataforma de supervisión, para poder comunicarse con los controles de los equipos de frío y clima, necesita conocer sus registros. Para ello, en la plataforma existe un apartado llamado "librerías", en el cual se pueden ver y crear los mapeados de registros de los controles que se necesiten. En la \hyperref[figura:libreriaPlataforma]{Figura~\ref{figura:libreriaPlataforma}} se puede ver el aspecto de una librería en la plataforma.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/planoSupermercado}
+  \caption{Aspecto librería en la plataforma IoT}
+  \label{figura:libreriaPlataforma}
+\end{figure}
 
 Para el caso del \textit{iPro}, en el cual el programa se diseña desde cero por kiconex, el mapeado de registros se extrae directamente del software \textit{ISaGRAF}, y se introduce en una nueva librería en la plataforma. Cuando se trata de otros controles, es el cliente quien lo consigue a través del fabricante. kiconex, gracias a su trayectoria, ya ha recopilado una gran cantidad de librerías para multitud de controles, lo que facilita mucho el proceso.
 
 \section{ESP32-PoE}
 \label{sec:esp32poe}
 
-xxx-placaesp32
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=10cm, keepaspectratio]{img/ESP32-POE}
+  \caption{Olimex ESP32-PoE}
+  \label{figura:imgesp32}
+\end{figure}
 
-El hardware empleado para el desarrollo del kiconex inalámbrico (\textit{kiwi}) se basa en el chip ESP32 xxx. El modelo empleado es el Olimex ESP32-PoE (Figura xxx). Olimex xxx es una empresa de Bulgaria líder en fabricación electrónica para el mercado integrado. Su modelo ESP32-PoE ha sido elegido por disponer de un puerto UEXT desde el que se puede obtener una interfaz RS-485 a través de un conversor, para la comunicación a través de Modbus RTU. También dispone de puerto ethernet que puede usarse bien como conexión a internet vía ethernet o bien para conectar un equipo por modbus TCP.
+El hardware empleado para el desarrollo del kiconex inalámbrico (\textit{kiwi}) se basa en el chip ESP32\footnote{\url{https://www.espressif.com/en/products/socs/esp32/overview}}. El modelo empleado es el Olimex ESP32-PoE (\hyperref[figura:imgesp32]{Figura~\ref{figura:imgesp32}}). Olimex\footnote{\url{https://www.olimex.com/Products/IoT/ESP32/ESP32-POE/open-source-hardware}} es una empresa de Bulgaria líder en fabricación electrónica para el mercado integrado. Su modelo ESP32-PoE ha sido elegido por disponer de un puerto UEXT desde el que se puede obtener una interfaz RS-485 a través de un conversor\footnote{\url{https://www.olimex.com/Products/Modules/Interface/MOD-RS485/open-source-hardware}} (\hyperref[figura:imgconversoruext]{Figura~\ref{figura:imgconversoruext}}), para la comunicación a través de Modbus RTU. También dispone de puerto ethernet que puede usarse bien como conexión a internet vía ethernet o bien para conectar un equipo por modbus TCP. La Figura \hyperref[figura:pinesesp32]{Figura~\ref{figura:pinesesp32}} representa los pines de entrada y salida de la placa y del conector UEXT.
 
-xxx-conversoruext
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=8cm, keepaspectratio]{img/UEXT-RS485}
+  \caption{Conversor UEXT-RS485}
+  \label{figura:imgconversoruext}
+\end{figure}
 
-La Figura xxx representa los pines de entrada y salida de la placa y del conector UEXT:
+\hspace{1em}
 
-xxx-pines
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/ESP32-POE-GPIO}
+  \caption{Pines ESP32-PoE y conector UEXT}
+  \label{figura:pinesesp32}
+\end{figure}
 
-Para la elaboración del código de programación del kiwi, se va a aprovechar parte del código empleado en las siguientes librerías ya existentes en github xxx:
+Para la elaboración del código de programación del kiwi, se va a aprovechar parte del código empleado en las siguientes librerías ya existentes en github\footnote{\url{https://github.com/}}:
 
 \begin{itemize}
-  \item Librería Modbus RTU  
-  \item Librería Modbus TCP 
-  \item Librería WiFiManager
+  \item Librería Modbus RTU, de xxx  
+  \item Librería Modbus TCP, de xxx
+  \item Librería WiFiManager, de xxx
 \end{itemize}
+
+\hspace{2em}
+
+\section{Protocolo Modbus}
+\label{sec:modbus}
+
+Hasta este punto del documento se ha mencionado varias veces al protocolo Modbus y sus variantes: Modbus TCP y Modbus RTU, por lo que es en esta sección, y dada la importancia de este protocolo en el proyecto, donde se va a exponer de forma muy resumida sus características principales:
+
+\begin{itemize}
+  \item Distingue entre el dispositivo que solicita la información (\textbf{maestro}) y los dispositivos que proporcionan dicha información (\textbf{esclavos}). Esto significa que un esclavo no puede ofrecer información si no se le ha solicitado antes.  
+  \item Para la comunicación, cada esclavo dispone de una dirección única de \textbf{8 bits}, por lo que un maestro puede tener hasta \textbf{254} esclavos.
+  \item Se puede distinguir entre \textbf{Modbus TCP}, para comunicaciones vía ethernet a través de la red LAN, y \textbf{Modbus RTU}, para comunicaciones serie a través de RS232/RS485.
+  \item Estructura del mensaje: el mensaje siempre se compone de dirección del esclavo, código de función Modbus, dirección de registro y cantidad de registros a leer. En el caso del Modbus RTU, se añaden dos bytes que contienen un código CRC para la detección de errores.
+  \item Funciones: dispone de distintas funciones en función de la naturaleza de la información compartida o de los registros con los que se desea compartir información:
+  \begin{itemize}
+    \item xxx
+  \end{itemize}  
+\end{itemize} 
+
+En el Anexo xxx, extraído directamente de la web de la Modbus Organizationxxx se describe de forma detallada cada una de las funciones Modbus, y que información exacta contiene cada campo (byte) del mensaje.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
