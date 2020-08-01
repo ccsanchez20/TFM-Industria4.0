@@ -28,10 +28,11 @@
 \usepackage{tikz}           % Para elementos gráficos
 \usepackage{url}            % Para definir URLs
 \usepackage[style=ieee, backend=biber]{biblatex} % Bibliografía en formato IEEE
+
 %\usepackage[dvipdfm]{graphicx}
 %\usepackage{graphicx}
 \usepackage{float}          % H para posicionar figuras
-\usepackage[nottoc, notlot, notlof, notindex]{tocbibind} % Opciones de índice
+\usepackage[nottoc]{tocbibind} %, notlot, notlof, notindex]{tocbibind} % Opciones de índice
 \usepackage{multirow} % Celdas que ocupan varias filas en una tabla
 \usepackage{multicol} % Celdas que ocupan varias columnas en una tabla
 \usepackage{tabularx} % Ancho definido de tablas y columnas
@@ -84,7 +85,7 @@
 }
 \makeatother
 
-%\bibliography{\jobname}
+\bibliography{referencias}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PORTADA 
@@ -284,9 +285,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Diseño header y footer genérico
-\lhead[\leftmark]{}
+\lhead[\leftmark]{}%sup. izq. par / sup. izq. impar
 \chead[]{}
-\rhead[]{\thechapter. \rightmark}
+\rhead[]{\rightmark}
 \renewcommand{\headrulewidth}{0.5pt}
 
 \lfoot[\thepage]{\theauthor}
@@ -315,22 +316,7 @@
 
 \input{./1-CAPITULOS/01-Estado del arte}
 
-\cleardoublepage
-\chapter{Desarrollo del proyecto}
-\label{chap:desarrollo}
-indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
-\section{Programación iPro}
-\label{sec:programacionipro}
-indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
-\section{Diseño Pantalla para el control}
-\label{sec:programacionpantalla}
-indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
-\section{Elaboración de librerías en Kiconex}
-\label{sec:librerias}
-indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
-\section{Programación dispositivo wireless}
-\label{sec:programacionesp32}
-indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
+\input{./1-CAPITULOS/02-Desarrollo del proyecto}
 
 
 \cleardoublepage
@@ -587,8 +573,17 @@ indican las conclusiones generales obtenidas a partir del estudio realizado, se 
 % % BIBLIOGRAFIA %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \cleardoublepage
+%\cleardoublepage
 
+% \chapter*{Bibliografía}
+% \chaptermark{Bibliografía}
+% \label{chap:bibliografia}
+
+%\addcontentsline{toc}{chapter}{Bibliografía}
+
+\printbibliography[heading=bibintoc, title={Bibliografía}] 
+
+% \addcontentsline{toc}{chapter}{Bibliografía}
 % % Las siguientes dos instrucciones es todo lo que necesitas
 % % para incluir las citas en la memoria
 % \bibliographystyle{abbrv}

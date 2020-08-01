@@ -41,7 +41,7 @@
   >
 ]>
 <requests version="1.0">
-  <internal package="biblatex" priority="9" active="0">
+  <internal package="biblatex" priority="9" active="1">
     <generic>latex</generic>
     <provides type="dynamic">
       <file>TFM-CuestaSanchez_Cristian.bcf</file>
@@ -81,6 +81,9 @@
     </provides>
     <requires type="dynamic">
       <file>TFM-CuestaSanchez_Cristian.bcf</file>
+    </requires>
+    <requires type="editable">
+      <file>referencias.bib</file>
     </requires>
   </external>
 </requests>
