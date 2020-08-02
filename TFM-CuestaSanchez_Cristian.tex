@@ -28,7 +28,9 @@
 \usepackage{tikz}           % Para elementos gráficos
 \usepackage{url}            % Para definir URLs
 \usepackage[style=ieee, backend=biber]{biblatex} % Bibliografía en formato IEEE
-
+\usepackage[page, titletoc]{appendix} % Apéndices (Anexos)
+\addto{\captionsspanish}{\renewcommand*{\appendixname}{Anexo}}
+\renewcommand{\appendixpagename}{ANEXOS}
 %\usepackage[dvipdfm]{graphicx}
 %\usepackage{graphicx}
 \usepackage{float}          % H para posicionar figuras
@@ -275,7 +277,7 @@
  %%%% Índice de tablas
  %\cleardoublepage
  %\addcontentsline{toc}{chapter}{Lista de tablas} % para que aparezca en el indice de contenidos
- %\listoftables % indice de tablas
+ \listoftables % indice de tablas
 
  
 
@@ -594,6 +596,12 @@ indican las conclusiones generales obtenidas a partir del estudio realizado, se 
 % % y ver�s que lo puedes hacer de manera sencilla.
 % % M�s informaci�n: 
 % % http://texblog.org/2014/04/22/using-google-scholar-to-download-bibtex-citations/
+
+
+\begin{appendices}
+  \input{./ANEXOS/02-Que es una UTA}
+\end{appendices}
+
 
 
 \end{document}
