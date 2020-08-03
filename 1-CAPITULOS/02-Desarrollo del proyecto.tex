@@ -14,12 +14,29 @@ En las siguientes secciones se detalla de forma estructurada el desarrollo de ca
 
 \section{Programación iPro}
 \label{sec:programacionipro}
-Como ya se ha explicado en los capítulos anteriores, el destino del iPro es la programación de varias UTAs existentes en el supermercado. En e Anexo xxx se describe detalladamente qué es una UTA y de qué elementos se puede componer. En el caso del supermercado, la UTA tiene una serie de características que van a simplificar su control:
+Como ya se ha explicado en los capítulos anteriores, el destino del iPro es la programación de la UTA existente en el supermercado. En el \hyperref[chap:anexoUTA]{Anexo~\ref{chap:anexoUTA}} se describe detalladamente qué es una UTA y todos los elementos de los que se puede componer. Para el caso que nos atañe, la \hyperref[tab:especificacionesUTA]{Tabla~\ref{tab:especificacionesUTA}} recoge las especificaciones concretas del control:
 
-\begin{itemize}
-    \item Ventiladores
-\end{itemize}
+\begin{table}[h]
+    %\centering
+    \begin{center}
+      \setlength\arrayrulewidth{2pt}
+      \resizebox{\linewidth}{!}{\begin{tabular}{ | c | c c c c | }
+        %\Cline{2pt}{2-5}
+        \hhline{|*{5}{-}}
+        \cellcolor{lightgray}\textbf{GRUPO} & \multicolumn{1}{c|}{\cellcolor{lightgray}\textbf{Entrada analógica}} & \multicolumn{1}{c|}{\cellcolor{lightgray}\textbf{Salida analógica}} & \multicolumn{1}{c|}{\cellcolor{lightgray}\textbf{Entrada digital}} & \cellcolor{lightgray}\textbf{Salida digital}   \\ \hline
+        \footnotesize{\textbf{Ventiladores}} &  & \parbox[c][1.8cm]{0.2\linewidth}{\centering\footnotesize{Ventilador impulsión\\Ventilador retorno}}  & \parbox[c][2.8cm]{0.2\linewidth}{\centering\footnotesize{Seguridad Ventilador impulsión\\Seguridad Ventilador retorno}} &  \\ \hline
+        \footnotesize{\textbf{Filtros}} & & & \footnotesize{\parbox[c][2.3cm]{0.2\linewidth}{\centering{Filtro entrada\\Filtro salida\\Filtro retorno}}} & \\ \hline
+        \footnotesize{\textbf{Humectador}} & \footnotesize{\parbox[c][1.5cm]{0.2\linewidth}{\centering{Humedad de retorno\\Humedad exterior}}} & & \centering\footnotesize{Indicador nivel agua} & \footnotesize{ON/OFF Humectador} \\ \hline
+        \footnotesize{\textbf{Intercambiador de calor}} & \footnotesize{\parbox[c][1.5cm]{0.2\linewidth}{\centering{Temp. impulsión agua\\Temp. retorno agua}}} & & & \footnotesize{Válvula de agua}\\ \hline
+        \footnotesize{\textbf{E/S de aire}} & \footnotesize{\parbox[c][3cm]{0.2\linewidth}{\centering{Temp. impulsión aire\\Temp. retorno aire\\Temp. extracción aire\\Temp. aire exterior}}} & & & \\ \hline
 
+      \end{tabular}}
+      \caption{Especificaciones E/S UTA.}
+      \label{tab:especificacionesUTA}
+    \end{center}
+  \end{table}
+
+  
 
 
 \section{Diseño Pantalla para el control}
