@@ -36,7 +36,7 @@ Como ya se ha explicado en los capítulos anteriores, el destino del iPro es la 
     \end{center}
   \end{table}
 
-La lógica de funcionamiento se recoge en el diagrama de flujo de la Figura xxx, y sigue las siguientes pautas:
+La lógica de funcionamiento se recoge en el diagrama de flujo de la \hyperref[figura:curvasModos]{Figura~\ref{figura:curvasModos}}XXX, y sigue las siguientes pautas:
 
 \begin{itemize}
   \item \textbf{Compuertas:} No existen compuertas regulables.
@@ -77,13 +77,47 @@ La lógica de funcionamiento se recoge en el diagrama de flujo de la Figura xxx,
   \label{figura:curvasModos}
 \end{figure}
 
+%%
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/curvaModos}
+  \caption{Modos de funcionamientoxxx}
+  \label{figura:curvasModos}
+\end{figure}
+
+El \hyperref[chap:anexoProgramaUTA]{Anexo~\ref{chap:anexoProgramaUTA}} recoge el parte del programa realizado para el funcionamiento de la UTA. Los parámetros necesarios para la configuración del controlador son los de la \hyperref[chap:anexoProgramaUTA]{Tabla~\ref{chap:anexoProgramaUTA}xxx}
+
+% Tabla xxx
 
 \section{Diseño Pantalla para el control}
 \label{sec:programacionpantalla}
-indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
+Desde el programa Visoprog, donde se diseña la pantalla, se importan las variables del programa creado con el software ISaGRAF. Para ello, Visoprog tiene dos opciones de importación: directamente desde un proyecto ISaGRAF o desde una hoja excel o fichero csv. El diseño generado y el funcionamiento de la pantalla es el siguiente:
+
+% Funcionamiento pantalla xxx según manual
+
 \section{Elaboración de librerías en Kiconex}
 \label{sec:librerias}
-indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
+En el capítulo anterior se explicaba que son necesarias librerias que recopilen los registros de cada control para la integración del mismo en la plataforma IoT de kiconex. Los controles que componen la instalación del supermercado son los siguientes:
+
+\begin{itemize}
+  \item \textbf{Dixell XW60VS}: para cámaras frigoríficas y obradores.
+  \item \textbf{Dixell XW60VS}: para murales, semimurales, vitrinas e islas de congelados.
+  \item \textbf{Danfoss AK-PC-551}: para murales de lácteos.
+  \item \textbf{Nuevo control basado en iPro IPG208}: el control programado en el apartado anterior, destinado a la UTA.
+\end{itemize}
+
+Para todos los controles existen ya librerías preparadas en kiconex, excepto para el iPro de la UTA, para el que hay que crearla a partir del programa realizado. 
+
+ISaGRAF permite exportar un recopilatorio de variables en formato PDF. La mayoría de lo que aparece en dicho PDF se puede omitir en la librería por tratarse de parámetros por defecto del control, por lo que se han recopilado en el \hyperref[chap:anexoRegistrosUTA]{Tabla~\ref{chap:anexoRegistrosUTA}xxx} los registros que sí hay que tener en cuenta. Para añadir dichos registros a una librería, es necesario completar los siguientes campos en la plataforma:
+
+\begin{itemize}
+  \item xxx
+  \item El control de temperatura se establece según el modo de funcionamiento: verano (frío) o invierno (calor).
+  \item Las curva de funcionamiento para cada uno de los modos es la de la \hyperref[figura:curvasModos]{Figura~\ref{figura:curvasModos}}:
+\end{itemize}
+
+El aspecto de la interfaz  para introducir los campos anteriores son los de las Figuras \hyperref[figura:curvasModos]{\ref{figura:curvasModos}} a \hyperref[figura:curvasModos]{\ref{figura:curvasModos}}.
+
 \section{Programación dispositivo wireless}
 \label{sec:programacionesp32}
 indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
