@@ -108,15 +108,67 @@ En el capítulo anterior se explicaba que son necesarias librerias que recopilen
 
 Para todos los controles existen ya librerías preparadas en kiconex, excepto para el iPro de la UTA, para el que hay que crearla a partir del programa realizado. 
 
-ISaGRAF permite exportar un recopilatorio de variables en formato PDF. La mayoría de lo que aparece en dicho PDF se puede omitir en la librería por tratarse de parámetros por defecto del control, por lo que se han recopilado en el \hyperref[chap:anexoRegistrosUTA]{Tabla~\ref{chap:anexoRegistrosUTA}xxx} los registros que sí hay que tener en cuenta. Para añadir dichos registros a una librería, es necesario completar los siguientes campos en la plataforma:
+ISaGRAF permite exportar un recopilatorio de variables en formato PDF. La mayoría de lo que aparece en dicho PDF se puede omitir en la librería por tratarse de parámetros por defecto del control, por lo que se han recopilado en el \hyperref[chap:anexoRegistrosUTA]{Tabla~\ref{chap:anexoRegistrosUTA}xxx} los registros que sí hay que tener en cuenta. Para añadir dichos registros a una librería, es necesario completar los siguientes campos de la pestaña librerías en la plataforma IoT:
 
 \begin{itemize}
-  \item xxx
-  \item El control de temperatura se establece según el modo de funcionamiento: verano (frío) o invierno (calor).
-  \item Las curva de funcionamiento para cada uno de los modos es la de la \hyperref[figura:curvasModos]{Figura~\ref{figura:curvasModos}}:
+  \item Nombre\footnote[1]{Campo obligatorio.}
+  \item Descripción\footnotemark[1]
+  \item Categoría\footnotemark[1]
+  \item Grupo
+  \item Unidad de medida
+  \item Rango
+  \item \textbf{Registro\footnotemark[1]}
+  \item Función de lectura
+  \item Función de escritura
+  \item Offset
+  \item Longitud (bits)\footnotemark[1]
+  \item Máscara
+  \item Valor
+  \item Metadatos
 \end{itemize}
 
-El aspecto de la interfaz  para introducir los campos anteriores son los de las Figuras \hyperref[figura:curvasModos]{\ref{figura:curvasModos}} a \hyperref[figura:curvasModos]{\ref{figura:curvasModos}}.
+La \textit{categoría} clasifica clasifica al registro en función de su naturaleza (E/S, Parámetro, Alarma, etc.), y el \textit{grupo} lo clasifica en función de la aplicación (ejemplo: ventiladores, compresores, etc.). Los campos \textit{offset}, \textit{mácara} y \textit{valor} permiten hacer un tratamiento del valor que se lee o que se va a escribir, lo que es útil en situaciones en las que, por ejemplo, solo se quiere escribir un bit concreto de un campo de 8 bits, o cuando se leen datos de temperatura con campos decimales (el valor leído necesita la aplicación de un offset que indique cuántos decimales tiene).
+El campo \textit{icono} permite tener un icono asociado al valor de cara a los diagramas de la plataforma.
+Los \textit{metadatos} asocian valores a un campo de texto o a un icono. Por ejemplo, el estado de un ventilador se asocia a dos iconos: uno de un ventilador apagado y otro de un ventilador encendido, lo que hace que en la ventana principal se indique el estado de dicho ventilador a través de un icono en lugar de un valor, lo que lo hace más visual. Esto se aplica también a los diagramas. 
+
+\hspace{1em}
+
+El aspecto de la interfaz  para introducir los campos anteriores son los de las Figuras \hyperref[figura:lib0]{\ref{figura:lib0}} a \hyperref[figura:lib4]{\ref{figura:lib4}}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/lib0}
+  \caption{Añadir parámetro a librería kiconex - Pestaña general}
+  \label{figura:lib0}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/lib1}
+  \caption{Añadir parámetro a librería kiconex - Pestaña categoría}
+  \label{figura:lib1}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/lib2}
+  \caption{Añadir parámetro a librería kiconex - Pestaña unidades}
+  \label{figura:lib2}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/lib3}
+  \caption{Añadir parámetro a librería kiconex - Pestaña modbus}
+  \label{figura:lib3}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/lib4}
+  \caption{Añadir parámetro a librería kiconex - adición de metadato}
+  \label{figura:lib4}
+\end{figure}
 
 \section{Programación dispositivo wireless}
 \label{sec:programacionesp32}
