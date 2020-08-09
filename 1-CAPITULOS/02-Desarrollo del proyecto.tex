@@ -172,4 +172,132 @@ El aspecto de la interfaz  para introducir los campos anteriores son los de las 
 
 \section{Programación dispositivo wireless}
 \label{sec:programacionesp32}
-indican las conclusiones generales obtenidas a partir del estudio realizado, se proponen lineas de trabajo futuro, y se indican las publicaciones asociadas al trabajo realizado en este TFM.
+Llegados a este punto, hay que buscar la forma de conectar de forma inalámbrica los muebles de refrigeración: murales de lácteos, vitrinas expositoras, semimurales e islas de congelados. Para ello se ha diseñado un nuevo dispositivo que se conecta de forma cableada al control del equipo y de forma inalámbrica a través de una red WiFi. Ya se describió en el capítulo anterior el hardware a emplear, el ESP32-PoE de Olimex, y se explicó el funcionamiento de una red kiconex. Es por ello que el software del ESP32 debe tener una serie de requisitos:
+
+\begin{itemize}
+  \item Comunicación: debe disponer de una interfaz de configuración de red, tanto de la red Modbus como de la red TCP/IP.
+  \item Esclavo Modbus TCP: debe ser capaz de recibir las tramas Modbus TCP del maestro kibox, entenderlas y procesarlas para extraer cada campo.
+  \item Maestro Modbus RTU: a través de la información extraída de la trama TCP recibida, enviar una nueva trama a través de Modbus RTU.
+  \item Respuesta: es necesario repetir el proceso a la inversa: recibir la respuesta a la trama enviada por Modbus RTU, extraer la información y reenviarla como respuesta a la trama Modbus TCP recibida previamente desde el Maestro kibox.
+\end{itemize}
+
+\subsection{Librería para interfaz de configuración}
+\label{subsec:interfazKiwi}
+Para la interfaz se parte de la librería WiFiManager de Khoi Hoang~\cite{libreriaWiFigithub} \href{https://github.com/khoih-prog/ESP_WiFiManager}{(consultar su enlace en la bibliografía para más información)}. Dicha librería ha sido configurada por completo para adaptarla a las necesidades de diseño del kiwi:
+
+\begin{enumerate}
+  \item Interfaz en cualquier modo: accesible tanto en modo AP (para realizar la configuración), como en modo cliente WiFi (para ver y cambiar la configuración realizada).
+  \item Medio de conexión: permite seleccionar Ethernet o WiFi.
+  \item Diseño: logo de kiwi y colores de kiconex.
+  \item Nuevas ventanas con más opciones, como se muestra en la \hyperref[figura:lib5]{Figura~\ref{figura:lib4}}:
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth, keepaspectratio]{img/lib3}
+    \caption{Ventanas interfaz kiwi}
+    \label{figura:lib5}
+  \end{figure}
+\end{enumerate}
+
+La nueva librería resultado de aplicar los anteriores cambios se ha bautizado con el nombre de KiWiManager. Su uso dentro del código principal es el siguiente:
+
+\begin{itemize}
+  \item Configuración inicial:
+
+\begin{lstlisting}
+#include <stdio.h>
+#include <stdlib.h>
+// programa muy positivo
+
+void main{
+  system("clear");
+  printf("Hola mundo!\n");
+}
+\end{lstlisting}
+
+\item Acceso al modo AP:
+
+\begin{lstlisting}
+  #include <stdio.h>
+  #include <stdlib.h>
+  // programa muy positivo
+  
+  void main{
+    system("clear");
+    printf("Hola mundo!\n");
+  }
+  \end{lstlisting}
+  
+  \item Conexión en modo cliente WiFi:
+  
+  \begin{lstlisting}
+    #include <stdio.h>
+    #include <stdlib.h>
+    // programa muy positivo
+    
+    void main{
+      system("clear");
+      printf("Hola mundo!\n");
+    }
+    \end{lstlisting}
+    
+    \item Conexión en modo cliente Ethernet:
+  
+    \begin{lstlisting}
+      #include <stdio.h>
+      #include <stdlib.h>
+      // programa muy positivo
+      
+      void main{
+        system("clear");
+        printf("Hola mundo!\n");
+      }
+      \end{lstlisting}  
+
+\end{itemize}
+
+\subsection{Librería para maestro Modbus RTU}
+\label{subsec:maestroRTUkiwi}
+
+Para esto se ha empleado la librería Modbus RTU del usuario smarmengol (Samuel Marco) en github. Para usarla dentro del código y poder enviar mensajes Modbus y recibir las respuestas, se emplea el siguiente código:
+
+\begin{lstlisting}
+  #include <stdio.h>
+  #include <stdlib.h>
+  // programa muy positivo
+  
+  void main{
+    system("clear");
+    printf("Hola mundo!\n");
+  }
+\end{lstlisting}
+
+\subsection{Librería para esclavo Modbus TCP}
+\label{subsec:esclavoTCPkiwi}
+
+En este caso se ha diseñado por completo una librería cuya función es esperar la recepción de mensajes a través de TCP/IP a la IP del dispositivo, procesar esos mensajes y enviarlos vía Modbus RTU empleando la librería anterior. Es decir se trata de una librería puente, por lo que se ha bautizado con el nombre de KiWiModbusBridge. Su uso dentro del código principal es el siguiente:
+
+\begin{lstlisting}
+  #include <stdio.h>
+  #include <stdlib.h>
+  // programa muy positivo
+  
+  void main{
+    system("clear");
+    printf("Hola mundo!\n");
+  }
+\end{lstlisting}
+
+En el \hyperref[chap:anexoLibreriaBridge]{Anexo~\ref{chap:anexoLibreriaBridge}} se describe la lógica de funcionamiento de esta librería.
+
+\subsection{Código principal}
+\label{subsec:mainCodeKiwi}
+
+El código principal del software de kiwi se encarga de integrar cada una de las librerías anteriores y de gestionar el flujo de programa. Su lógica de funcionamiento se recoge en el siguiente diagrama:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/lib3}
+  \caption{Flujo de programa del código principal de kiwi}
+  \label{figura:lib6}
+\end{figure}
