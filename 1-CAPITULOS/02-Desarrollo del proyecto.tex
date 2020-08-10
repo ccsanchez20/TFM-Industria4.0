@@ -36,7 +36,7 @@ Como ya se ha explicado en los capítulos anteriores, el destino del iPro es la 
     \end{center}
   \end{table}
 
-La lógica de funcionamiento se recoge en el diagrama de flujo de la \hyperref[figura:flujoPrograma]{Figura~\ref{figura:flujoPrograma}}, y sigue las siguientes pautas:
+La lógica de funcionamiento sigue las siguientes pautas:
 
 \begin{itemize}
   \item \textbf{Compuertas:} No existen compuertas regulables.
@@ -77,38 +77,273 @@ La lógica de funcionamiento se recoge en el diagrama de flujo de la \hyperref[f
   \label{figura:curvasModos}
 \end{figure}
 
-%%
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth, keepaspectratio]{img/curvaModos}
-  \caption{Fujo del programa}
-  \label{figura:flujoPrograma}
-\end{figure}
 
-El \hyperref[chap:anexoProgramaUTA]{Anexo~\ref{chap:anexoProgramaUTA}} recoge el parte del programa realizado para el funcionamiento de la UTA. Los parámetros necesarios para la configuración del controlador son los de la \hyperref[chap:anexoProgramaUTA]{Tabla~\ref{chap:anexoProgramaUTA}xxx}
 
-% Tabla xxx
+El \hyperref[chap:anexoProgramaUTA]{Anexo~\ref{chap:anexoProgramaUTA}} recoge parte del programa realizado para el funcionamiento de la UTA. Los parámetros necesarios para la configuración del controlador son los de la \hyperref[tab:parametrosUTA]{Tabla~\ref{tab:parametrosUTA}}.
+
+\begin{center}
+  \begin{longtable}{|p{3cm}|p{3cm}|p{9cm}|}
+  \caption{Parámetros de configuración de la UTA.} \label{tab:parametrosUTA} \\
+  
+  \hline \cellcolor{lightgray}\centering\textbf{GRUPO} & \cellcolor{lightgray}\centering\textbf{PARÁMETRO} & \cellcolor{lightgray}\textbf{DESCRIPCIÓN} \\ \hline 
+  \endfirsthead
+  
+  \multicolumn{3}{c}%
+  {{\bfseries \tablename\ \thetable{} ...continuación de la página anterior.}} \\
+  \hline \cellcolor{lightgray}\textbf{GRUPO} & \cellcolor{lightgray}\textbf{PARÁMETRO} & \cellcolor{lightgray}\textbf{DESCRIPCIÓN} \\ \hline 
+  \endhead
+  
+  \hline  \multicolumn{3}{c}%
+  {{\bfseries \tablename\ \thetable{} continua en la página siguiente...}} \\
+  \endfoot
+  
+  \hline
+  \endlastfoot
+  
+      \multirow{6}{*}\centering{Configuración Equipo} & \centering\textbf{CNF01} & Habilitar módulos de expansión (DIN4/DIN10) \\ \cline{2-3}
+      & \centering\textbf{HUM01} & Establecer consigna de humedad en \%HR \\ \cline{2-3}
+      & \centering\textbf{HUM02} & Establecer banda para control de humedad, en \%HR \\ \cline{2-3}
+      & \centering\textbf{TMP01} & Establecer consigna de temperatura en $^{\circ}$C \\ \cline{2-3}
+      & \centering\textbf{TMP02} & Establecer banda de temperatura para la
+      regulación en el modo invierno ($^{\circ}$C) \\ \cline{2-3}
+      & \centering\textbf{TMP03} & Establecer banda de temperatura para la
+      regulación en el modo verano ($^{\circ}$C) \\ \hline
+      \multirow{12}{*}{\centering{Ventiladores}} & \centering\textbf{FAN01} & Establecer valor de velocidad baja \\ \cline{2-3}
+      & \centering\textbf{FAN02} & Establecer valor de velocidad media \\ \cline{2-3}
+      & \centering\textbf{FAN03} & Establecer valor de velocidad alta \\ \cline{2-3}
+      & \centering\textbf{FAN04} & Establecer valor de velocidad mínima para la
+      regulación automática \\ \cline{2-3}
+      & \centering\textbf{FAN05} & Establecer valor de velocidad máxima para la
+      regulación automática \\ \cline{2-3}
+      & \centering\textbf{FAN06} & Establecer banda de velocidad para la regulación
+      automática \\ \cline{2-3}
+      & \centering\textbf{FAN07} & Tiempo de retardo de activación de alarma en
+      ventilador de impulsión en segundos \\ \cline{2-3}
+      & \centering\textbf{FAN08} & Tiempo de retardo de desactivación de alarma en
+      ventilador de impulsión en segundos \\ \cline{2-3}
+      & \centering\textbf{FAN09} & Número de alarmas en el ventilador de impulsión
+      hasta bloqueo \\ \cline{2-3}
+      & \centering\textbf{FAN10} & Tiempo de retardo de activación de alarma en
+      ventilador de retorno en segundos \\ \cline{2-3}
+      & \centering\textbf{FAN11} & Tiempo de retardo de desactivación de alarma en
+      ventilador de retorno en segundos \\ \cline{2-3}
+      & \centering\textbf{FAN12} & Número de alarmas en el ventilador de retorno
+      hasta bloqueo \\ \hline
+      \multirow{6}{*}{\centering{Filtros}} & \centering\textbf{FIL01} & Retardo de activación de aviso en filtro de entrada
+      de aire en segundos \\ \cline{2-3}
+      & \centering\textbf{FIL02} & Retardo de desactivación de alarma en filtro de
+      entrada de aire en segundos \\ \cline{2-3}
+      & \centering\textbf{FIL03} & Retardo de activación de aviso en filtro de
+      impulsión de aire en segundos \\ \cline{2-3}
+      & \centering\textbf{FIL04} & Retardo de desactivación de alarma en filtro de
+      impulsión de aire en segundos \\ \cline{2-3}
+      & \centering\textbf{FIL05} & Retardo de activación de aviso en filtro de retorno
+      de aire en segundos \\ \cline{2-3}
+      & \centering\textbf{FIL06} & Retardo de desactivación de alarma en filtro de
+      retorno de aire en segundos \\ \hline
+      \multirow{43}{*}\centering{Entradas digitales} & \centering\textbf{DIG01} & \footnotesize{\textbf{INV(FALSE)/DIR(TRUE)}: polaridad inversa o directa} \\ \cline{2-2}
+      & \centering\textbf{DIG02} & \footnotesize{\textbf{0=No utilizado}: entrada sin función asociada} \\ \cline{2-2}
+      & \centering\textbf{DIG03} & \footnotesize{\textbf{1=ON-OFF}: Interruptor de ON/OFF remoto} \\ \cline{2-2}
+      & \centering\textbf{DIG04} & \footnotesize{\textbf{2=DI. Ventilador Impulsión}: seguridad ventilador impulsión} \\ \cline{2-2}
+      & \centering\textbf{DIG05} & \footnotesize{\textbf{3=DI. Ventilador retorno}: seguridad ventilador retorno} \\ \cline{2-2}
+      & \centering\textbf{DIG06} & \footnotesize{\textbf{4=DI. Nivel Humectador}: seguridad nivel humectador} \\ \cline{2-2}
+      & \centering\textbf{DIG07} & \footnotesize{\textbf{5=DI. Filtro entrada aire}: seguridad filtro entrada aire} \\ \cline{2-2}
+      & \centering\textbf{DIG08} & \footnotesize{\textbf{6=DI. Filtro impulsión aire}: seguridad filtro impulsión aire} \\ \cline{2-2}
+      & \centering\textbf{DIG09} & \footnotesize{\textbf{7=DI. Filtro retorno aire}: seguridad filtro retorno aire} \\ \cline{2-2}
+      & \centering\textbf{DIG10} &  \\ \cline{2-2}
+      & \centering\textbf{DIG11} &  \\ \cline{2-2}
+      & \centering\textbf{DIG12} &  \\ \cline{2-2}
+      & \centering\textbf{DIG13} &  \\ \cline{2-2}
+      & \centering\textbf{DIG14} &  \\ \cline{2-2}
+      & \centering\textbf{DIG15} &  \\ \cline{2-2}
+      & \centering\textbf{DIG16} &  \\ \cline{2-2}
+      & \centering\textbf{DIG17} &  \\ \cline{2-2}
+      & \centering\textbf{DIG18} &  \\ \cline{2-2}
+      & \centering\textbf{DIG19} &  \\ \cline{2-2}
+      & \centering\textbf{DIG20} &  \\ \cline{2-2}
+      & \centering\textbf{DIG21} &  \\ \cline{2-2}
+      & \centering\textbf{DIG22} &  \\ \cline{2-2}
+      & \centering\textbf{DIG23} &  \\ \cline{2-2}
+      & \centering\textbf{DIG24} &  \\ \cline{2-2}
+      & \centering\textbf{DIG25} &  \\ \cline{2-2}
+      & \centering\textbf{DIG26} &  \\ \cline{2-2}
+      & \centering\textbf{DIG27} &  \\ \cline{2-2}
+      & \centering\textbf{DIG28} &  \\ \cline{2-2}
+      & \centering\textbf{DIG29} &  \\ \cline{2-2}
+      & \centering\textbf{DIG30} &  \\ \cline{2-2}
+      & \centering\textbf{DIG31} &  \\ \cline{2-2}
+      & \centering\textbf{DIG32} &  \\ \cline{2-2}
+      & \centering\textbf{DIG33} &  \\ \cline{2-2}
+      & \centering\textbf{DIG34} &  \\ \cline{2-2}
+      & \centering\textbf{DIG35} &  \\ \cline{2-2}
+      & \centering\textbf{DIG36} &  \\ \cline{2-2}
+      & \centering\textbf{DIG37} &  \\ \cline{2-2}
+      & \centering\textbf{DIG38} &  \\ \cline{2-2}
+      & \centering\textbf{DIG39} &  \\ \cline{2-2}
+      & \centering\textbf{DIG40} &  \\ \cline{2-2}
+      & \centering\textbf{DIG41} &  \\ \cline{2-2}
+      & \centering\textbf{DIG42} &  \\ \cline{2-2}
+      & \centering\textbf{DIG43} &  \\ \hline
+      \multirow{43}{*}\centering\small{Sondas analógicas} & \centering\textbf{PBS01} & \footnotesize{\textbf{0=no usado}: sonda sin función} \\ \cline{2-2}
+      & \centering\textbf{PBS02} & \footnotesize{\textbf{1=Ta impulsión aire}} \\ \cline{2-2}
+      & \centering\textbf{PBS03} & \footnotesize{\textbf{2=Ta retorno aire}} \\ \cline{2-2}
+      & \centering\textbf{PBS04} & \footnotesize{\textbf{3=Ta impulsión agua}} \\ \cline{2-2}
+      & \centering\textbf{PBS05} & \footnotesize{\textbf{4=Ta retorno agua}} \\ \cline{2-2}
+      & \centering\textbf{PBS06} & \footnotesize{\textbf{5=Ta extracción aire}} \\ \cline{2-2}
+      & \centering\textbf{PBS07} & \footnotesize{\textbf{6=Ta aire extraído}} \\ \cline{2-2}
+      & \centering\textbf{PBS08} & \footnotesize{\textbf{7=Ta extracción aire}} \\ \cline{2-2}
+      & \centering\textbf{PBS09} & \footnotesize{\textbf{8=Humedad de retorno}} \\ \cline{2-2}
+      & \centering\textbf{PBS10} & \footnotesize{\textbf{9=Humedad exterior}} \\ \cline{2-2}
+      & \centering\textbf{PBS11} &  \\ \cline{2-2}
+      & \centering\textbf{PBS12} &  \\ \cline{2-2}
+      & \centering\textbf{PBS13} &  \\ \cline{2-2}
+      & \centering\textbf{PBS14} &  \\ \cline{2-2}
+      & \centering\textbf{PBS15} &  \\ \cline{2-2}
+      & \centering\textbf{PBS16} &  \\ \cline{2-2}
+      & \centering\textbf{PBS17} &  \\ \cline{2-2}
+      & \centering\textbf{PBS18} &  \\ \cline{2-2}
+      & \centering\textbf{PBS19} &  \\ \cline{2-2}
+      & \centering\textbf{PBS20} &  \\ \cline{2-2}
+      & \centering\textbf{PBS21} &  \\ \cline{2-2}
+      & \centering\textbf{PBS22} &  \\ \cline{2-2}
+      & \centering\textbf{PBS23} &  \\ \cline{2-2}
+      & \centering\textbf{PBS24} &  \\ \cline{2-2}
+      & \centering\textbf{PBS25} &  \\ \cline{2-2}
+      & \centering\textbf{PBS26} &  \\ \cline{2-2}
+      & \centering\textbf{PBS27} &  \\ \hline
+      \multirow{43}{*}\centering{Rele salida} & \centering\textbf{RLO01} & \footnotesize{\textbf{0=No usado}:relé sin función asociada} \\ \cline{2-2}
+      & \centering\textbf{RLO02} & \footnotesize{\textbf{1=Válvula de 3 vías}: activación válvula de agua} \\ \cline{2-2}
+      & \centering\textbf{RLO03} & \footnotesize{\textbf{2=Humectador}: activación humectador} \\ \cline{2-2}
+      & \centering\textbf{RLO04} & \footnotesize{\textbf{3=Alarma}: activación alarma} \\ \cline{2-2}
+      & \centering\textbf{RLO05} &  \\ \cline{2-2}
+      & \centering\textbf{RLO06} &  \\ \cline{2-2}
+      & \centering\textbf{RLO07} &  \\ \cline{2-2}
+      & \centering\textbf{RLO08} &  \\ \cline{2-2}
+      & \centering\textbf{RLO09} &  \\ \cline{2-2}
+      & \centering\textbf{RLO10} &  \\ \cline{2-2}
+      & \centering\textbf{RLO11} &  \\ \cline{2-2}
+      & \centering\textbf{RLO12} &  \\ \cline{2-2}
+      & \centering\textbf{RLO13} &  \\ \cline{2-2}
+      & \centering\textbf{RLO14} &  \\ \cline{2-2}
+      & \centering\textbf{RLO15} &  \\ \cline{2-2}
+      & \centering\textbf{RLO16} &  \\ \cline{2-2}
+      & \centering\textbf{RLO17} &  \\ \cline{2-2}
+      & \centering\textbf{RLO18} &  \\ \cline{2-2}
+      & \centering\textbf{RLO19} &  \\ \cline{2-2}
+      & \centering\textbf{RLO20} &  \\ \cline{2-2}
+      & \centering\textbf{RLO21} &  \\ \cline{2-2}
+      & \centering\textbf{RLO22} &  \\ \cline{2-2}
+      & \centering\textbf{RLO23} &  \\ \cline{2-2}
+      & \centering\textbf{RLO24} &  \\ \cline{2-2}
+      & \centering\textbf{RLO25} &  \\ \cline{2-2}
+      & \centering\textbf{RLO26} &  \\ \cline{2-2}
+      & \centering\textbf{RLO27} &  \\ \cline{2-2}
+      & \centering\textbf{RLO28} &  \\ \cline{2-2}
+      & \centering\textbf{RLO29} &  \\ \cline{2-2}
+      & \centering\textbf{RLO30} &  \\ \cline{2-2}
+      & \centering\textbf{RLO31} &  \\ \cline{2-2}
+      & \centering\textbf{RLO32} &  \\ \cline{2-2}
+      & \centering\textbf{RLO33} &  \\ \cline{2-2}
+      & \centering\textbf{RLO34} &  \\ \cline{2-2}
+      & \centering\textbf{RLO35} &  \\ \cline{2-2}
+      & \centering\textbf{RLO36} &  \\ \hline
+      \multirow{43}{*}\centering{Salidas} & \centering\textbf{ANA01} & \footnotesize{\textbf{0=No utilizado}: salida sin función asociada} \\ \cline{2-2}
+      analógicas & \centering\textbf{ANA02} & \footnotesize{\textbf{1=Vel. Ventilador imp.}: salida analógica para regular la} \\ \cline{2-2}
+      & \centering\textbf{ANA03} & \footnotesize{velocidad del ventilador de impulsión de aire} \\ \cline{2-2}
+      & \centering\textbf{ANA04} & \footnotesize{\textbf{2=Vel. Ventilador ret.}: salida analógica para regular la} \\ \cline{2-2}
+      & \centering\textbf{ANA05} & \footnotesize{velocidad del ventilador de retorno de aire} \\ \cline{2-2}
+      & \centering\textbf{ANA06} &  \\ \cline{2-2}
+      & \centering\textbf{ANA07} &  \\ \cline{2-2}
+      & \centering\textbf{ANA08} &  \\ \cline{2-2}
+      & \centering\textbf{ANA09} &  \\ \cline{2-2}
+      & \centering\textbf{ANA10} &  \\ \cline{2-2}
+      & \centering\textbf{ANA11} &  \\ \cline{2-2}
+      & \centering\textbf{ANA12} &  \\ \cline{2-2}
+      & \centering\textbf{ANA13} &  \\ \cline{2-2}
+      & \centering\textbf{ANA14} &  \\ \cline{2-2}
+      & \centering\textbf{ANA15} &  \\ 
+  \end{longtable}
+  \end{center}
 
 \section{Diseño Pantalla para el control}
 \label{sec:programacionpantalla}
-Desde el programa Visoprog, donde se diseña la pantalla, se importan las variables del programa creado con el software ISaGRAF. Para ello, Visoprog tiene dos opciones de importación: directamente desde un proyecto ISaGRAF o desde una hoja excel o fichero csv. El diseño generado y el funcionamiento de la pantalla es el siguiente:
+Desde el programa Visoprog, donde se diseña la pantalla, se importan las variables del programa creado con el software ISaGRAF. Para ello, Visoprog tiene dos opciones de importación: directamente desde un proyecto ISaGRAF o desde una hoja excel o fichero csv. El diseño realizado se compone de las ventanas de la \hyperref[figura:ventanas]{Figura~\ref{figura:ventanas}}, su funcionamiento se describe en el manual del anexo xxx:
 
-% Funcionamiento pantalla xxx según manual
+\begin{figure}[H]
+  \centering
+   \subfigure[Logo de inicio]{\includegraphics[width=0.4\textwidth]{img/vent0}}
+   \subfigure[Pantalla principal]{\includegraphics[width=0.4\textwidth]{img/vent1}}
+ \end{figure}
+
+ \begin{figure}[H]
+  \centering
+   \subfigure[Menú]{\includegraphics[width=0.4\textwidth]{img/vent2}}
+   \subfigure[Menú de parámetros]{\includegraphics[width=0.4\textwidth]{img/vent3}}
+ \end{figure}
+
+ \begin{figure}[H]
+  \centering
+   \subfigure[Configuración de sondas analógicas]{\includegraphics[width=0.4\textwidth]{img/vent4}}
+   \subfigure[Configuración de entradas digitales]{\includegraphics[width=0.4\textwidth]{img/vent5}}
+ \end{figure}
+
+ \begin{figure}[H]
+  \centering
+   \subfigure[Configuración de relés de salida]{\includegraphics[width=0.4\textwidth]{img/vent6}}
+   \subfigure[Configuración de sondas analógicas]{\includegraphics[width=0.4\textwidth]{img/vent7}}
+ \end{figure}
+
+ \begin{figure}[H]
+  \centering
+   \subfigure[Consigna de humedad]{\includegraphics[width=0.4\textwidth]{img/vent8}}
+   \subfigure[Menú de servicio]{\includegraphics[width=0.4\textwidth]{img/vent9}}
+ \end{figure}
+
+ \begin{figure}[H]
+  \centering
+   \subfigure[Configuración de comunicación]{\includegraphics[width=0.4\textwidth]{img/vent10}}
+   \subfigure[Registro de alarmas]{\includegraphics[width=0.4\textwidth]{img/vent11}}
+ \end{figure}
+
+ \begin{figure}[H]
+  \centering
+   \subfigure[Registro de datos]{\includegraphics[width=0.4\textwidth]{img/vent12}}
+   \subfigure[Habilitar el registro de datos]{\includegraphics[width=0.4\textwidth]{img/vent13}}
+ \end{figure}
+
+ \begin{figure}[H]
+  \centering
+   \subfigure[Menú de carga/descarga de parámetros]{\includegraphics[width=0.4\textwidth]{img/vent14}}
+   \subfigure[Guardar parámetros]{\includegraphics[width=0.4\textwidth]{img/vent15}}
+ \end{figure}
+
+ \begin{figure}[H]
+  \centering
+   \subfigure[Cargar parámetros]{\includegraphics[width=0.4\textwidth]{img/vent16}}
+   \subfigure[Cambio de idioma]{\includegraphics[width=0.4\textwidth]{img/vent17}}
+ \end{figure}
+
+ \begin{figure}[H]
+  \centering
+   \subfigure[Visualización de avisos]{\includegraphics[width=0.4\textwidth]{img/vent18}}
+   \caption{Diseño de las ventanas de la pantalla}
+   \label{figura:ventanas}
+ \end{figure}
 
 \section{Elaboración de librerías en Kiconex}
 \label{sec:librerias}
-En el capítulo anterior se explicaba que son necesarias librerias que recopilen los registros de cada control para la integración del mismo en la plataforma IoT de kiconex. Los controles que componen la instalación del supermercado son los siguientes:
+En el capítulo anterior se explicaba que son necesarias librerías que recopilen los registros de cada control para la integración del mismo en la plataforma IoT de kiconex. Los controles que componen la instalación del supermercado son los siguientes:
 
 \begin{itemize}
   \item \textbf{Dixell XW60VS}: para cámaras frigoríficas y obradores.
-  \item \textbf{Dixell XW60VS}: para murales, semimurales, vitrinas e islas de congelados.
-  \item \textbf{Danfoss AK-PC-551}: para murales de lácteos.
+  \item \textbf{Dixell XR-75}: para murales, semimurales, vitrinas e islas de congelados.
+  \item \textbf{Danfoss AK-PC-551}: para la central de refrigeración.
   \item \textbf{Nuevo control basado en iPro IPG208}: el control programado en el apartado anterior, destinado a la UTA.
 \end{itemize}
 
 Para todos los controles existen ya librerías preparadas en kiconex, excepto para el iPro de la UTA, para el que hay que crearla a partir del programa realizado. 
 
-ISaGRAF permite exportar un recopilatorio de variables en formato PDF. La mayoría de lo que aparece en dicho PDF se puede omitir en la librería por tratarse de parámetros por defecto del control, por lo que se han recopilado en el \hyperref[chap:anexoRegistrosUTA]{Tabla~\ref{chap:anexoRegistrosUTA}xxx} los registros que sí hay que tener en cuenta. Para añadir dichos registros a una librería, es necesario completar los siguientes campos de la pestaña librerías en la plataforma IoT:
+ISaGRAF permite exportar un recopilatorio de variables en formato PDF. La mayoría de lo que aparece en dicho PDF se puede omitir en la librería por tratarse de parámetros por defecto del control, por lo que se han recopilado en el \hyperref[chap:anexoRegistrosUTA]{Tabla~\ref{chap:anexoRegistrosUTA}} los registros que sí hay que tener en cuenta. Para añadir dichos registros a una librería, es necesario completar los siguientes campos de la pestaña librerías en la plataforma IoT:
 
 \begin{itemize}
   \item Nombre\footnote[1]{Campo obligatorio.}
@@ -205,54 +440,115 @@ La nueva librería resultado de aplicar los anteriores cambios se ha bautizado c
   \item Configuración inicial:
 
 \begin{lstlisting}
-#include <stdio.h>
-#include <stdlib.h>
-// programa muy positivo
+#include "./KiWiManager/src/KiWiManager.h"
+#include "./KiWiManager/src/KiWiManager.cpp"
 
-void main{
-  system("clear");
-  printf("Hola mundo!\n");
+#define USE_AVAILABLE_PAGES     false
+#define SHOW_AP_DEBUG           true
+#define CONFIGURATION_TIMEOUT   90      //time in seconds  
+
+// For some unknown reason webserver can only be started once per boot up
+// so webserver can not be used again in the sketch.
+#define WIFI_CONNECT_TIMEOUT        60000L
+#define WHILE_LOOP_DELAY            5000L
+#define WHILE_LOOP_STEPS            (WIFI_CONNECT_TIMEOUT / ( 3 * WHILE_LOOP_DELAY ))
+
+// SSID and PW for Config Portal
+const char* HOSTNAME = "kiwigw";
+String ssid = "KiWi_" + String(ESP_getChipId(), HEX);
+const char* password = "*********";
+byte mac[6];
+
+// SSID and PW for your Router
+String Router_SSID;
+String Router_Pass;
+
+KiWiManager KiWiPortal(HOSTNAME);
+
+void setup()
+{
+  KiWiPortal.begin();
 }
 \end{lstlisting}
 
 \item Acceso al modo AP:
 
 \begin{lstlisting}
-  #include <stdio.h>
-  #include <stdlib.h>
-  // programa muy positivo
-  
-  void main{
-    system("clear");
-    printf("Hola mundo!\n");
+  KiWiPortal.setDebugOutput(SHOW_AP_DEBUG);
+  KiWiPortal.showAvailablePages(USE_AVAILABLE_PAGES);
+  KiWiPortal.setMinimumSignalQuality(15);
+
+  Router_SSID = KiWiPortal.getSSID();
+  Router_Pass = KiWiPortal.WiFi_Pass();
+
+  if (Router_SSID != "")
+  {
+    KiWiPortal.setConfigPortalTimeout(CONFIGURATION_TIMEOUT); //If no access point name has been previously entered disable timeout.
+    #ifdef MBMainDebug
+      Serial.println("Stored: SSID = " + Router_SSID + ", Pass = " + Router_Pass);
+      Serial.print("Timeout ");
+      Serial.print(CONFIGURATION_TIMEOUT);
+      Serial.println("s");
+    #endif
   }
-  \end{lstlisting}
+  else{
+    #ifdef MBMainDebug
+      Serial.println("No timeout");
+    #endif
+  }
+
+  if (!KiWiPortal.startConfigPortal((const char *) ssid.c_str()/*, password*/)){
+    #ifdef MBMainDebug
+      Serial.println("Not connected to WiFi but continuing anyway.");
+    #endif
+  }else{
+    #ifdef MBMainDebug 
+      Serial.println("WiFi connected in WiFiManager.");
+    #endif
+  }
+\end{lstlisting}
   
   \item Conexión en modo cliente WiFi:
   
-  \begin{lstlisting}
-    #include <stdio.h>
-    #include <stdlib.h>
-    // programa muy positivo
-    
-    void main{
-      system("clear");
-      printf("Hola mundo!\n");
-    }
-    \end{lstlisting}
+\begin{lstlisting}
+  KiWiPortal.setDebugOutput(SHOW_AP_DEBUG);
+  KiWiPortal.showAvailablePages(USE_AVAILABLE_PAGES);
+  KiWiPortal.setMinimumSignalQuality(40);
+
+  Router_SSID = KiWiPortal.getSSID();
+  Router_Pass = KiWiPortal.getPASS();
+  IPAddress ip = KiWiPortal.getIP();
+  IPAddress gw = KiWiPortal.getGW();
+  IPAddress sn = KiWiPortal.getSN();
+  IPAddress dns1 = KiWiPortal.getDNS1();
+  IPAddress dns2 = KiWiPortal.getDNS2();
+
+  WiFi.mode(WIFI_STA);
+  WiFi.config(ip,gw,sn,dns1,dns2);
+  WiFi.begin(Router_SSID.c_str(),Router_Pass.c_str());
+  
+  while ( (WiFi.status() != WL_CONNECTED) && (millis() - startedAt < WIFI_CONNECT_TIMEOUT ) )
+  {
+      #ifdef MBMainDebug
+        Serial.print(".");
+      #endif 
+      int i = 0;
+      while ((!WiFi.status() || WiFi.status() >= WL_DISCONNECTED) && i++ < WHILE_LOOP_STEPS)
+      {
+        delay(WHILE_LOOP_DELAY);
+      }
+  }
+\end{lstlisting}
     
     \item Conexión en modo cliente Ethernet:
   
-    \begin{lstlisting}
-      #include <stdio.h>
-      #include <stdlib.h>
-      // programa muy positivo
-      
-      void main{
-        system("clear");
-        printf("Hola mundo!\n");
-      }
-      \end{lstlisting}  
+\begin{lstlisting}
+  KiWiPortal.setDebugOutput(SHOW_AP_DEBUG);
+  KiWiPortal.showAvailablePages(USE_AVAILABLE_PAGES);
+  KiWiPortal.setMinimumSignalQuality(15);
+
+  configState = KiWiPortal.startEthernetClientConfigPortal((const char *) ssid.c_str());
+\end{lstlisting}  
 
 \end{itemize}
 
@@ -261,16 +557,73 @@ void main{
 
 Para esto se ha empleado la librería Modbus RTU del usuario smarmengol (Samuel Marco) en github. Para usarla dentro del código y poder enviar mensajes Modbus y recibir las respuestas, se emplea el siguiente código:
 
-\begin{lstlisting}
-  #include <stdio.h>
-  #include <stdlib.h>
-  // programa muy positivo
+\begin{itemize}
+  \item Inicialización:
   
-  void main{
-    system("clear");
-    printf("Hola mundo!\n");
+  \begin{lstlisting}
+    #include "../KiWiModbusRTU/KiWiModbusRtu.h"
+    #include "../KiWiModbusRTU/KiWiModbusRtu.cpp"
+    
+    Modbus master(u8id, u8serno, u8txenpin);
+    
+    master->begin(u32speed);      // baud-rate
+    master->setTimeOut(timeOut);  // Tiempo entre reintentos
+  \end{lstlisting}  
+
+  \item Uso:
+  
+  \begin{lstlisting}
+  uint8_t rtuCommunication = 1;
+  uint8_t ret = 0;
+
+  modbus_t telegrama[2];
+  uint8_t w_id = READ_index;
+
+  if (rw1 == 1) w_id = WRITE_index;
+
+  this->_u8state = 0;
+
+  /**
+  Struct with Modbus RTU parameters
+  telegrama[0].u8id       slave ID
+  telegrama[0].u8fct      Modbus Function Code
+  telegrama[0].u16RegAdd  Start address
+  telegrama[0].u16CoilsNo Number of registers or coils to read/write
+  telegrama[0].au16reg    Pointer to memory array
+  */
+  telegrama[rw1].u8id = au16data[ID_index];         // slave ID
+  telegrama[rw1].u8fct = au16data[FN_index];        // function code
+  telegrama[rw1].u16RegAdd = au16data[START_index]; // star address
+  telegrama[rw1].u16CoilsNo = au16data[LONG_index]; // number of registers/coils
+  telegrama[rw1].au16reg = au16data + w_id;         // pointer to memory array
+
+  while (rtuCommunication)
+  {
+    switch (this->_u8state)
+    {
+      case 0:
+        this->_u8state++;
+        break;
+      case 1:
+        master->query(telegrama[rw1]); // send query (only once)
+        this->_u8state++;
+        break;
+      case 2:
+        ret = master->poll(); // check message reception
+        /**
+           When generating the request to the slave, the master is in
+           COM_IDLE mode, and after that its status would be COM_WAITING
+                 COM_IDLE=0 ; COM_WAITING=1
+        */
+        if (master->getState() == COM_IDLE)
+        {
+          rtuCommunication = 0;
+        }
+        break;
+    }
   }
-\end{lstlisting}
+  \end{lstlisting} 
+\end{itemize}
 
 \subsection{Librería para esclavo Modbus TCP}
 \label{subsec:esclavoTCPkiwi}

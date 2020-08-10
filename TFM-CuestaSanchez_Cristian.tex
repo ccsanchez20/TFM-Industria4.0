@@ -45,6 +45,7 @@
 {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
 {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
 {€}{{\EUR}}1 {£}{{\pounds}}1}
+
 \usepackage[utf8]{inputenc} %
 \usepackage[T1]{fontenc}    % Fuentes   
 \usepackage[hidelinks=true,pdfborder={000}]{hyperref}  % Para referencias cruzadas
@@ -60,7 +61,9 @@
 \renewcommand{\appendixpagename}{ANEXOS}
 %\usepackage[dvipdfm]{graphicx}
 %\usepackage{graphicx}
+\usepackage{subfigure}
 \usepackage{float}          % H para posicionar figuras
+\usepackage{ragged2e}
 \usepackage[nottoc]{tocbibind} %, notlot, notlof, notindex]{tocbibind} % Opciones de índice
 \usepackage{multirow} % Celdas que ocupan varias filas en una tabla
 \usepackage{multicol} % Celdas que ocupan varias columnas en una tabla
@@ -72,6 +75,7 @@
 \usepackage{array}
 \usepackage{booktabs}
 %\usepackage[table]{xcolor}
+\usepackage{longtable} % para tablas largas
 \usepackage{hhline}
 \usepackage{colortbl}
 \usepackage{tabu}

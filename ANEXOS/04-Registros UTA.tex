@@ -9,37 +9,282 @@
 \label{chap:anexoRegistrosUTA} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 % \addcontentsline{toc}{chapter}{Introducción, Objetivos, Metodología y Planificación
 
-Una UTA es un equipo encargado de tratar el aire atendiendo a distintos aspectos de la climatización:
+Este anexo recoge los parámetros necesarios para el control de la Unidad de Tratamiento de Aire programada en el proyecto:
 
-\begin{itemize}
-    \item Ventilación
-    \item Filtrado
-    \item Control de temperatura
-    \item Control de humedad
-\end{itemize}
+\textbf{Pb\_T\_IMP\_AIRE}\\(* temperatura impulsión de aire *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\Dirección: 1000
 
-Su funcionamiento da la posibilidad de regular el caudal de ventilación en función de la medición del CO2 y de las condiciones térmicas del local, así como recuperar parte de la energía térmica del aire que se expulsa al exterior.
+\vspace{10mm}
 
-Las partes de las que se compone una UTA son:
+\textbf{Pb\_T\_RET\_AIRE}\\(* temperatura retorno de aire *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\Dirección: 1001
 
-\begin{itemize}
-    \item Compuertas o tomas de aire para la entrada y salida del aire.
-    \item Zona de mezcla del aire de retorno y del aire exterior para permitir recuperar energía mediante lo que se conoce como \textit{free-cooling}. La recuperación puede ser de distintos tipos:
-    \begin{itemize}
-        \item Recuperación aire-agua: el aire extraído transfiere su calor al agua a través de un intercambiador. El mismo agua transfiere ese calor al aire introducido desde el exterior, el cual fluye por otro conducto. Este sistema es más salubre al impedir que se mezclen ambas corrientes de aire, pero tiene menor rendimiento.
-        \item Recuperación mediante placas aire-aire: a través de un cubo metálico pasan ambas corrientes de aire a modo de flujo cruzado. El calor se transfiere a través del contacto del aire con las placas metálicas de los canales.
-    \end{itemize}
-    \item Intercambiador de calor, por donde fluye agua a la temperatura deseada (frío o calor). La temperatura del agua se transfiere al aire cuando éste pasa a través del intercambiador.
-    \item Filtros, que pueden ser de distintos tipos en función de las especificaciones de filtrado.
-    \item Humectador: el paso del aire seco y caliente por un panel mojado hace que se evapore parte de su agua y se produzca aire húmedo y frío. Dispone de una bandeja de almacenamiento y recogida del agua.
-    \item Zona de ventilación con ventilador y motor.
-\end{itemize}
+\vspace{10mm}
 
-La siguiente figura ilustra a modo de ejemplo todos los elementos mencionados:
+\textbf{Pb\_T\_IMP\_AGUA}\\(* temperatura impulsión fluido *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\Dirección: 1002
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth, keepaspectratio]{img/esquemaUTA}
-    \caption{Plano de partes de una UTA}
-    \label{figura:sasszxcsadsssd}
-\end{figure}
+\vspace{10mm}
+
+\textbf{Pb\_T\_RET\_AGUA}\\(* temperatura retorno fluido *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\Dirección: 1003
+
+\vspace{10mm}
+
+\textbf{Pb\_T\_EXTRAC\_AIRE}\\ (* temperatura extracción de aire *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\Dirección: 1004
+
+\vspace{10mm}
+
+\textbf{Pb\_T\_EXT\_AIRE}\\(* temperatura aire exterior *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\Dirección: 1005
+
+\vspace{10mm}
+
+\textbf{Pb\_H\_RET}\\(* humedad exterior *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\Dirección: 1006
+
+\vspace{10mm}
+
+\textbf{Pb\_H\_EXT}\\(* humedad retorno *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\Dirección: 1007
+
+\vspace{10mm}
+
+\textbf{AO\_VENT\_IMP}\\(* Ventilador impulsión de aire *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\Dirección: 1080
+
+\vspace{10mm}
+
+\textbf{AO\_VENT\_RET}\\(* Ventilador retorno aire *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\Dirección: 1081
+
+\vspace{10mm}
+
+\textbf{DI\_ONOFF}\\(* On-OFF remoto *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1100
+
+\vspace{10mm}
+
+\textbf{DI\_VENT\_IMP}\\(* Seguridad ventilador imp. aire *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1101
+
+\vspace{10mm}
+
+\textbf{DI\_VENT\_RET}\\(* Seguridad ventilador ret. aire *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1102
+
+\vspace{10mm}
+
+\textbf{DI\_NIVEL\_HUM}\\(* Sensor nivel humectador *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1103
+
+\vspace{10mm}
+
+\textbf{DI\_FILT\_ENT}\\(* Filtro de entrada de aire sucio *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1104
+
+\vspace{10mm}
+
+\textbf{DI\_FILT\_IMP}\\(* Filtro de impulsión de aire sucio *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1105
+
+\vspace{10mm}
+
+\textbf{DI\_FILT\_RET}\\(* Filtro de retorno de aire sucio *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1106
+
+\vspace{10mm}
+
+\textbf{RELE\_VALVE3V}\\(* Conmutación válvula *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1200
+
+\vspace{10mm}
+
+\textbf{RELE\_HUMECT}\\(* Activación/Desactivación de la humectación *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\ Dirección: 1201
+
+\vspace{10mm}
+
+\textbf{RELE\_COMP\_IMPUL}\\(* Apertura/Cierre Compuerta de Impulsión *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1202
+
+\vspace{10mm}
+
+\textbf{RELE\_COMP\_RET}\\(* Apertura/Cierre Compuerta de retorno *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1203
+
+\vspace{10mm}
+
+\textbf{RELE\_ALARM}\\(* Activación / Desactivación Alarma *)\\Grupo: ENTRADAS\_SALIDAS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1204
+
+\vspace{10mm}
+
+\textbf{ONOFF\_GEN}\\Grupo: ESTADOS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1402
+
+\vspace{10mm}
+
+\textbf{PAR\_SET}\\(* Consigna *)\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1508
+
+\vspace{10mm}
+
+\textbf{PAR\_SET\_HUM}\\(* Consigna de diferencia de humedad con el exterior *)\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1509
+
+\vspace{10mm}
+
+\textbf{PAR\_VEL\_BAJA}\\(* Configuración de velocidad baja *)\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 150B
+
+\vspace{10mm}
+
+\textbf{PAR\_VEL\_MEDIA}\\(* Configuración de velocidad media *)\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 150C
+
+\vspace{10mm}
+
+\textbf{PAR\_VEL\_ALTA}\\(* Configuración de velocidad alta *)\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 150D
+
+\vspace{10mm}
+
+\textbf{PAR\_VEL\_MIN}\\(* Velocidad mínima en los ventiladores *)\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 150E
+
+\vspace{10mm}
+
+\textbf{PAR\_VEL\_MAX}\\(* Velocidad máxima en los ventiladores *)\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 150F
+
+\vspace{10mm}
+
+\textbf{PAR\_BANDA\_VEL}\\(* Ancho de banda para velocidad máxima *)\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1510
+
+\vspace{10mm}
+
+\textbf{PAR\_BAND\_INV}\\(* Temperatura de banda en modo invierno *)\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1512
+
+\vspace{10mm}
+
+\textbf{PAR\_BAND\_VER}\\(* Temperatura de banda en modo verano *)\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1513
+
+\vspace{10mm}
+
+\textbf{PAR\_BAND\_HUM}\\(* Banda humedad *)\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1514
+
+\vspace{10mm}
+
+\textbf{PAR\_TEMP\_FIL1}\\(* Temporización para alarma filtro entrada aire(no usada) *)\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\  Dirección: 1515
+
+\vspace{10mm}
+
+\textbf{PAR\_TEMP\_FIL2}\\(* Temporización para alarma filtro impulsión aire(no usada) *)\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\Dirección: 1516
+
+\vspace{10mm}
+
+\textbf{PAR\_TEMP\_FIL3}\\(* Temporización para alarma filtro impulsión aire(no usada) *)\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\Dirección: 1517
+
+\vspace{10mm}
+
+\textbf{PAR\_TOFF\_AL\_FAN1}\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1518
+
+\vspace{10mm}
+
+\textbf{PAR\_TON\_AL\_FAN1}\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1519
+
+\vspace{10mm}
+
+\textbf{PAR\_NUM\_INTENTOS\_FAN1}\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 151A
+
+\vspace{10mm}
+
+\textbf{PAR\_TOFF\_AL\_FAN2}\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 151B
+
+\vspace{10mm}
+
+\textbf{PAR\_TON\_AL\_FAN2}\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 151C
+
+\vspace{10mm}
+
+\textbf{PAR\_NUM\_INTENTOS\_FAN2}\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 151D
+
+\vspace{10mm}
+
+\textbf{PAR\_TON\_AL\_FIL1}\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 151E
+
+\vspace{10mm}
+
+\textbf{PAR\_TON\_AL\_FIL2}\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 151F
+
+\vspace{10mm}
+
+\textbf{PAR\_TON\_AL\_FIL3}\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1520
+
+\vspace{10mm}
+
+\textbf{PAR\_TOFF\_AL\_FIL1}\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1521
+
+\vspace{10mm}
+
+\textbf{PAR\_TOFF\_AL\_FIL2}\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1522
+
+\vspace{10mm}
+
+\textbf{PAR\_TOFF\_AL\_FIL3}\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1523
+
+\vspace{10mm}
+
+\textbf{PAR\_NUM\_INTENTOS\_FIL1}\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1524
+
+\vspace{10mm}
+
+\textbf{PAR\_NUM\_INTENTOS\_FIL2}\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1525
+
+\vspace{10mm}
+
+\textbf{PAR\_NUM\_INTENTOS\_FIL3}\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1526
+
+\vspace{10mm}
+
+\textbf{SONDAS}\\Dimensión: [1..27]\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1600
+
+\vspace{10mm}
+
+\textbf{ENTRADAS\_DIGITALES}\\Dimensión: [1..43]\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1630
+
+\vspace{10mm}
+
+\textbf{POLARIDAD\_DI}\\Dimensión: [1..43]\\Grupo: PARAMETROS\_CONFIGURACION\\  Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1660
+
+\vspace{10mm}
+
+\textbf{RELE\_SALIDA}\\Dimensión: [1..36]\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 1690
+
+\vspace{10mm}
+
+\textbf{SALIDAS\_ANALOG}\\Dimensión: [1..15]\\Grupo: PARAMETROS\_CONFIGURACION\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\No volátil: SI\\Dirección: 16C0
+
+\vspace{10mm}
+
+\textbf{ALARM\_VENT\_IMPULSION}\\Grupo: ALARMAS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1703
+
+\vspace{10mm}
+
+\textbf{ALARM\_VENT\_RETORNO}\\Grupo: ALARMAS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1704
+
+\vspace{10mm}
+
+\textbf{WARNING\_VENT\_IMPULSION}\\Grupo: WARNINGS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1A06
+
+\vspace{10mm}
+
+\textbf{WARNING\_VENT\_RETORNO}\\Grupo: WARNINGS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1A07
+
+\vspace{10mm}
+
+\textbf{WARNING\_FILTRO\_ENTRADA}\\Grupo: WARNINGS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1A08
+
+\vspace{10mm}
+
+\textbf{WARNING\_FILTRO\_IMPULSION}\\Grupo: WARNINGS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1A09
+
+\vspace{10mm}
+
+\textbf{WARNING\_FILTRO\_RETORNO}\\Grupo: WARNINGS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1A0A
+
+\vspace{10mm}
+
+\textbf{WARNING\_H\_FLUID\_TMP}\\Grupo: WARNINGS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1A0B
+
+\vspace{10mm}
+
+\textbf{WARNING\_L\_FLUID\_TMP}\\Grupo: WARNINGS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1A0C
+
+\vspace{10mm}
+
+\textbf{KB\_ONOFF}\\Grupo: COMANDOS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1C00
+
+\vspace{10mm}
+
+\textbf{RESET\_ALARM\_MANUAL}\\Grupo: COMANDOS\\Tipo: BOOL\\ Atributo: Libre\\Sentido: Memory\\Dirección: 1C01
+
+\vspace{10mm}
+
+\textbf{KB\_VEL}\\ (* Selección de velocidad: 0,1,2,3(AUTO) *)\\Grupo: COMANDOS\\Tipo: DINT\\Atributo: Libre\\Sentido: Memory\\Dirección: 1C06
+
+\vspace{10mm}
+
+\textbf{KB\_MODO}\\(* Modo verano/invierno *)\\Grupo: COMANDOS\\Tipo: BOOL\\Atributo: Libre\\Sentido: Memory\\Dirección: 1C07
