@@ -631,14 +631,38 @@ Para esto se ha empleado la librería Modbus RTU del usuario smarmengol (Samuel 
 En este caso se ha diseñado por completo una librería cuya función es esperar la recepción de mensajes a través de TCP/IP a la IP del dispositivo, procesar esos mensajes y enviarlos vía Modbus RTU empleando la librería anterior. Es decir se trata de una librería puente, por lo que se ha bautizado con el nombre de KiWiModbusBridge. Su uso dentro del código principal es el siguiente:
 
 \begin{lstlisting}
-  #include <stdio.h>
-  #include <stdlib.h>
-  // programa muy positivo
-  
-  void main{
-    system("clear");
-    printf("Hola mundo!\n");
-  }
+// Modbus bridge library
+#include "./KiWiModbusBridge/KiWiModbusBridge.h"
+#include "./KiWiModbusBridge/KiWiModbusBridge.cpp"
+
+/**
+ *  ModBus RTU Configuration
+ *  u8id : id = 0 for master, = 1..247 for slaves
+ *  u8serno : serial port (0 for Serial)
+ *  u8txenpin : 0 for RS-232 and USB-FTDI 
+ *               any value > 1 para RS-485
+ */
+uint8_t u8id = 0; 
+uint8_t u8serno = 0;   
+uint8_t u8txenpin = 5;  
+
+KiWiModbusBridge slave(u8id, u8txenpin, u8txenpin);
+
+long rtu_br;
+unsigned int tcp_port;
+
+void setup()
+{
+  rtu_br=9600;
+  tcp_port=502;
+  slave.begin(tcp_port, rtu_br);
+}
+
+void loop()
+{
+  slave.run();
+}
+
 \end{lstlisting}
 
 En el \hyperref[chap:anexoLibreriaBridge]{Anexo~\ref{chap:anexoLibreriaBridge}} se describe la lógica de funcionamiento de esta librería.
@@ -650,7 +674,29 @@ El código principal del software de kiwi se encarga de integrar cada una de las
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth, keepaspectratio]{img/lib3}
+  \includegraphics[width=15cm, keepaspectratio]{img/flujoProgramaPrincipal}
   \caption{Flujo de programa del código principal de kiwi}
-  \label{figura:lib6}
+  \label{figura:flujoProgramaPrincipal}
 \end{figure}
+
+
+\subsection{Integración de todos los elementos del sistema}
+\label{subsec:integracionComponentes}
+
+Ya esta todo listo para conectarlo a la red kiconex. Como ya se ha mencionado, los equipos del supermercado se comunican con la plataforma a través del kibox y del kiwi. Por ello, lo primero es crear la instalación del supermecado en la plataforma IoT, utilizando un id único de cada kibox, y después se añaden a dicha instalación cada uno de los equipos: 
+
+\begin{itemize}
+  \item Las centrales, las cámaras de refrigeración y los equipos de clima, se conectan de forma cableada al kibox a través de Modbus RTU, por lo que en la plataforma se añaden indicando su librería de registros y el puerto y la dirección Modbus.
+  \item En el caso de los muebles de refrigeración, se conectan de forma cableada con el kiwi a través de Modbus RTU. Dado que la comunicación se realiza a través del mismo kiwi, vía TCP, cada mueble se añade a la instalación indicando la librería de registros del control, la IP del kiwi, y la dirección Modbus del control. 
+\end{itemize}
+
+La \hyperref[figura:esquemaConexion]{Figura~\ref{figura:esquemaConexion}} siguiente, indica el esquema de conexión física de cada equipo.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/esquemaConexion}
+  \caption{Esquema conexión equipos supermercado}
+  \label{figura:esquemaConexion}
+\end{figure}
+
+La \hyperref[figura:esquemaConexion]{Figura~\ref{figura:esquemaConexion}} a \hyperref[figura:esquemaConexion]{Figura~\ref{figura:esquemaConexion}} muestra el proceso de creación de una instalación en la plataforma IoT de kiconex y la \hyperref[figura:esquemaConexion]{Figura~\ref{figura:esquemaConexion}} a \hyperref[figura:esquemaConexion]{Figura~\ref{figura:esquemaConexion}} el proceso de adición de equipos a la misma. Finalmente, la instalación tiene el aspecto de la \hyperref[figura:esquemaConexion]{Figuraxxx~\ref{figura:esquemaConexion}}.
