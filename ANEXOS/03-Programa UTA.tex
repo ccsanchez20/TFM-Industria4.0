@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 2.- DESARROLLO DEL PROYECTO
+%% 3.- PROGRAMA UTA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage
@@ -9,7 +9,7 @@
 \label{chap:anexoProgramaUTA} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 % \addcontentsline{toc}{chapter}{Introducción, Objetivos, Metodología y Planificación
 
-Una UTA es un equipo encargado de tratar el aire atendiendo a distintos aspectos de la climatización:
+El programa para el control de la UTA se ha realizado el software ISaGRAF, que emplea los lenguajes de estándar IEEXXX:                   
 
 \begin{itemize}
     \item Ventilación
@@ -18,24 +18,55 @@ Una UTA es un equipo encargado de tratar el aire atendiendo a distintos aspectos
     \item Control de humedad
 \end{itemize}
 
-Su funcionamiento da la posibilidad de regular el caudal de ventilación en función de la medición del CO2 y de las condiciones térmicas del local, así como recuperar parte de la energía térmica del aire que se expulsa al exterior.
+El programa se compone de una parte de configuración de entradas, salidas, parámetros, alarmas y warnings, y otra parte dedicada a la programación del funcionamiento de la UTA.
 
-Las partes de las que se compone una UTA son:
+En este anexo se muestran las variables configuradas (\hyperref[tab:variablesUTA]{Tabla~\ref{tab:variablesUTA}}), y la lógica de funcionamiento del programada.
 
-\begin{itemize}
-    \item Compuertas o tomas de aire para la entrada y salida del aire.
-    \item Zona de mezcla del aire de retorno y del aire exterior para permitir recuperar energía mediante lo que se conoce como \textit{free-cooling}. La recuperación puede ser de distintos tipos:
-    \begin{itemize}
-        \item Recuperación aire-agua: el aire extraído transfiere su calor al agua a través de un intercambiador. El mismo agua transfiere ese calor al aire introducido desde el exterior, el cual fluye por otro conducto. Este sistema es más salubre al impedir que se mezclen ambas corrientes de aire, pero tiene menor rendimiento.
-        \item Recuperación mediante placas aire-aire: a través de un cubo metálico pasan ambas corrientes de aire a modo de flujo cruzado. El calor se transfiere a través del contacto del aire con las placas metálicas de los canales.
-    \end{itemize}
-    \item Intercambiador de calor, por donde fluye agua a la temperatura deseada (frío o calor). La temperatura del agua se transfiere al aire cuando éste pasa a través del intercambiador.
-    \item Filtros, que pueden ser de distintos tipos en función de las especificaciones de filtrado.
-    \item Humectador: el paso del aire seco y caliente por un panel mojado hace que se evapore parte de su agua y se produzca aire húmedo y frío. Dispone de una bandeja de almacenamiento y recogida del agua.
-    \item Zona de ventilación con ventilador y motor.
-\end{itemize}
+\begin{center}
+    \begin{longtable}{|p{3cm}|p{4cm}|p{7.5cm}|}
+    \caption{Variables configuración control} \label{tab:variablesUTA} \\
+    
+    \hline \cellcolor{lightgray}\centering\textbf{GRUPO} & \cellcolor{lightgray}\centering\textbf{VARIABLE} & \cellcolor{lightgray}\textbf{DESCRIPCIÓN} \\ \hline 
+    \endfirsthead
+    
+    \multicolumn{3}{c}%
+    {{\bfseries \tablename\ \thetable{} ...continuación de la página anterior.}} \\
+    \hline \cellcolor{lightgray}\textbf{GRUPO} & \cellcolor{lightgray}\textbf{PARÁMETRO} & \cellcolor{lightgray}\textbf{DESCRIPCIÓN} \\ \hline 
+    \endhead
+    
+    \hline  \multicolumn{3}{c}%
+    {{\bfseries \tablename\ \thetable{} continua en la página siguiente...}} \\
+    \endfoot
+    
+    \hline
+    \endlastfoot
+    
+        \centering{Entradas} & \small\centering\textbf{CNF01} & \small{Habilitar módulos de expansión (DIN4/DIN10)} \\ \cline{2-3}
+        \centering{analógicas}& \small\centering\textbf{HUM01} & \small{Establecer consigna de humedad en \%HR} \\ \cline{2-3}
+        & \small\centering\textbf{HUM02} & \small{Establecer banda para control de humedad, en \%HR} \\ \hline
 
-La siguiente figura ilustra a modo de ejemplo todos los elementos mencionados:
+        \centering{Entradas} & \small\centering\textbf{CNF01} & \small{Habilitar módulos de expansión (DIN4/DIN10)} \\ \cline{2-3}
+        \centering{digitales} & \small\centering\textbf{HUM01} & \small{Establecer consigna de humedad en \%HR} \\ \cline{2-3}
+        & \small\centering\textbf{HUM02} & \small{Establecer banda para control de humedad, en \%HR} \\ \hline
+
+        \centering{Salidas} & \small\centering\textbf{CNF01} & \small{Habilitar módulos de expansión (DIN4/DIN10)} \\ \cline{2-3}
+        \centering{digitales} & \small\centering\textbf{HUM01} & \small{Establecer consigna de humedad en \%HR} \\ \cline{2-3}
+        & \small\centering\textbf{HUM02} & \small{Establecer banda para control de humedad, en \%HR} \\ \hline
+
+        \centering{Salidas} & \small\centering\textbf{CNF01} & \small{Habilitar módulos de expansión (DIN4/DIN10)} \\ \cline{2-3}
+        \centering{analógicas} & \small\centering\textbf{HUM01} & \small{Establecer consigna de humedad en \%HR} \\ \cline{2-3}
+        & \small\centering\textbf{HUM02} & \small{Establecer banda para control de humedad, en \%HR} \\ \hline
+
+        \centering{Alarmas} & \small\centering\textbf{CNF01} & \small{Habilitar módulos de expansión (DIN4/DIN10)} \\ \cline{2-3}
+        & \small\centering\textbf{HUM01} & \small{Establecer consigna de humedad en \%HR} \\ \cline{2-3}
+        & \small\centering\textbf{HUM02} & \small{Establecer banda para control de humedad, en \%HR} \\ \hline
+
+        \centering{Warnings} & \small\centering\textbf{CNF01} & \small{Habilitar módulos de expansión (DIN4/DIN10)} \\ \cline{2-3}
+        & \small\centering\textbf{HUM01} & \small{Establecer consigna de humedad en \%HR} \\ \cline{2-3}
+        & \small\centering\textbf{HUM02} & \small{Establecer banda para control de humedad, en \%HR} \\ \hline
+    \end{longtable}
+\end{center}
+
 
 \begin{figure}[H]
     \centering

@@ -28,30 +28,36 @@ En las primeras pruebas del kiwi, se han descubierto varios problema y/o necesid
   \item En esa primera versión, no se disponía de la posibilidad de conexión por cable, pero se decidió añadir dicha opción dado que dependiendo del equipo y la instalación puede ser más rentable usar un dispositivo como el kiwi conectado vía ethernet.
   \item Timeout de mensajes. Cada vez que se recibían mensajes para un dispositivo, kiwi abría un canal para los mensajes destinados a ese dispositivo, pero no volvía a cerrarlo, por lo que se ha añadido un tiempo (timeout) tras el cual, si no se vuelven a recibir mensajes a través de ese canal, se vuelve a cerrar. 
   \item Problema de cambio de modo (AP y cliente). Para la gestión de la conexión de red, WiFi o Ethernet, se han empleado las librerías estándar para el ESP32: WiFi.h, ETH.h, WiFiClient.h. Al parecer estas librerías no gestionan bien el paso de un modo a otro, por lo que el ESP32 parecía dejar de funcionar. La solución ha sido reiniciar el kiwi tras la configuración, para volver a ponerse en marcha desde cero, en el nuevo modo, a partir de los parámetros de configuración guardados en la EEPROM.
-  \item Desconexiones puntuales de la red WiFi. En el kiwi instalado para pruebas en la red de la empresa Intarcon, se detectaron desconexiones contínuas de la red WiFi. Este problema dio muchos dolores de cabeza, ya que el kiwi parecía funcionar sin problemas en otras redes. Para analizar este caso, se conectó un segundo kiwi en una red aislada, empleando un router de los empleados por kiconex para aquellas instalaciones sin acceso a la red, y se registraron en una hoja las desconexiones de ambos kiwis. \\ El resultado fue el de la \hyperref[figura:erroresIntarcon]{Figura~\ref{figura:erroresIntarcon}} y la \hyperref[figura:erroresRouter]{Figura~\ref{figura:erroresRouter}}, donde se puede ver que el kiwi de la red del router no tuvo ningún problema, mientras que el kiwi de la red de Intarcon tenía desconexiones contínuas durante el horario de trabajo. Fue este último dato el decisivo para saber que el problema estaba en la red de Intarcon, por lo que lo consultamos con el informático al cargo de la misma: nos confirmó que tras unos cambios en la red, había problemas con las DNS, y muchos equipos eran expulsados de la red. Este problema aun persiste, aunque en menor medida, pero el kiwi conectado al router sirve de muestra del buen funcionamiento del mismo.
+  \item Desconexiones puntuales de la red WiFi. En el kiwi instalado para pruebas en la red de la empresa Intarcon, se detectaron desconexiones contínuas de la red WiFi. Este problema dio muchos dolores de cabeza, ya que el kiwi parecía funcionar sin problemas en otras redes. Para analizar este caso, se conectó un segundo kiwi en una red aislada, empleando un router de los empleados por kiconex para aquellas instalaciones sin acceso a la red, y se registraron en una hoja las desconexiones de ambos kiwis. \\ El resultado fue el de la \hyperref[figura:erroresIntarcon]{Figura~\ref{figura:erroresIntarcon}} y la \hyperref[figura:erroresRouter]{Figura~\ref{figura:erroresRouter}}, donde se puede ver que el kiwi de la red del router no tuvo ningún problema, mientras que el kiwi de la red de Intarcon tenía desconexiones contínuas durante el horario de trabajo: de 8 a 18:30. Fue este último dato el decisivo para saber que el problema estaba en la red de Intarcon, por lo que lo consultamos con el informático al cargo de la misma: nos confirmó que tras unos cambios en la red, había problemas con las DNS, y muchos equipos eran expulsados de la red. Este problema aun persiste, aunque en menor medida, pero el kiwi conectado al router sirve de muestra del buen funcionamiento del mismo.
 \end{itemize}
 
+\clearpage
+\vspace*{\fill}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth, keepaspectratio]{img/lib1}
+  \includegraphics[width=\textwidth, keepaspectratio]{img/erroresRedIntarcon}
   \caption{Desconexiones kiwi en red de Intarcon}
   \label{figura:erroresIntarcon}
 \end{figure}
+\vspace*{\fill}
 
+\clearpage
+\vspace*{\fill}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth, keepaspectratio]{img/lib1}
+  \includegraphics[width=\textwidth, keepaspectratio]{img/erroresRedRouter}
   \caption{Desconexiones kiwi en red de router kiconex}
   \label{figura:erroresRouter}
 \end{figure}
-
-\vspace{10mm}
+\vspace*{\fill}
+\clearpage
 
 \section{Puesta en marcha de la instalación}
 \label{sec:altaInstalación}
 
 Cuando se conectan todos los dispositivos de la instalación, es momento de su puesta en marcha y de comprobar que todo está correctamente. Se trata de un trámite necesario, ya que aunque normalmente no da problemas, existen ocasiones en las que falla la conexión por causas ajenas a kiconex: resistencias de extremo de cable modbus, direcciones Modbus no configuradas en los equipos correctamente, etc. En este caso, el mapa de direcciones Modbus es el de la \hyperref[tab:direccionesModbus]{Tabla~\ref{tab:direccionesModbus}}.
 
+\vspace*{\fill}
 
 \begin{table}[H]
   %\centering
@@ -60,26 +66,35 @@ Cuando se conectan todos los dispositivos de la instalación, es momento de su p
     \begin{tabular}{| r | c |}
       \hhline{|*{2}{-}}
       \cellcolor{lightgray}\textbf{\footnotesize{EQUIPO}} & \cellcolor{lightgray}\textbf{\footnotesize{DIRECCIÓN}}\\ \hline
-      \footnotesize{Ventiladores} & 1 \\ \hline
-      \footnotesize{Filtros} & 2 \\ \hline
-      \footnotesize{Humectador} & 3 \\ \hline
-      \footnotesize{Intercambiador de calor} & 4 \\ \hline
-      \footnotesize{E/S de aire} & 5 \\ \hline
+      \footnotesize{Cámara BT} & 1 \\ \hline
+      \footnotesize{Cámara MT} & 2 \\ \hline
+      \footnotesize{Cámara AT} & 3 \\ \hline
+      \footnotesize{Isla BT} & 4 \\ \hline
+      \footnotesize{Vitrina MT} & 5 \\ \hline
+      \footnotesize{Murales MT} & 6 \\ \hline
+      \footnotesize{Semimurales MT} & 7 \\ \hline
+      \footnotesize{Obrador MT} & 8 \\ \hline
+      \footnotesize{Unidad de Tratamiento de Aire} & 9 \\ \hline
+      \footnotesize{Central de Refrigeración} & 10 \\ \hline
+      \footnotesize{Bomba de calor} & 11 \\ \hline
     \end{tabular}
     \caption{Direcciones Modbus equipos supermercado.}
     \label{tab:direccionesModbus}
   \end{center}
 \end{table} 
 
-
+\vspace*{\fill}
 
 La \hyperref[figura:instalcionConectada]{Figura~\ref{figura:instalcionConectada}} muestra como todos los elementos de la instalación se han conectado correctamente.
 
-
+\clearpage
+\vspace*{\fill}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth, keepaspectratio]{img/lib1}
+  \includegraphics[width=\textwidth, keepaspectratio]{img/instalacionConectada}
   \caption{Instalación supermercado conectada y funcionando}
   \label{figura:instalcionConectada}
 \end{figure}
+
+\vspace*{\fill}

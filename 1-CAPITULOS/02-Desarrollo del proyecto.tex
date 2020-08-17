@@ -267,7 +267,7 @@ El \hyperref[chap:anexoProgramaUTA]{Anexo~\ref{chap:anexoProgramaUTA}} recoge pa
 
 \section{Diseño Pantalla para el control}
 \label{sec:programacionpantalla}
-Desde el programa Visoprog, donde se diseña la pantalla, se importan las variables del programa creado con el software ISaGRAF. Para ello, Visoprog tiene dos opciones de importación: directamente desde un proyecto ISaGRAF o desde una hoja excel o fichero csv. El diseño realizado se compone de las ventanas de la \hyperref[figura:ventanas]{Figura~\ref{figura:ventanas}}, su funcionamiento se describe en el manual del anexo xxx:
+Desde el programa Visoprog, donde se diseña la pantalla, se importan las variables del programa creado con el software ISaGRAF. Para ello, Visoprog tiene dos opciones de importación: directamente desde un proyecto ISaGRAF o desde una hoja excel o fichero csv. El diseño realizado se compone de las ventanas de la \hyperref[figura:ventanas]{Figura~\ref{figura:ventanas}}, su funcionamiento se describe en el manual del \hyperref[chap:anexoManualUTA]{Tabla~\ref{chap:anexoManualUTA}}:
 
 \begin{figure}[H]
   \centering
@@ -338,6 +338,7 @@ En el capítulo anterior se explicaba que son necesarias librerías que recopile
   \item \textbf{Dixell XW60VS}: para cámaras frigoríficas y obradores.
   \item \textbf{Dixell XR-75}: para murales, semimurales, vitrinas e islas de congelados.
   \item \textbf{Danfoss AK-PC-551}: para la central de refrigeración.
+  \item \item \textbf{xxx}: para la bomba de calor.
   \item \textbf{Nuevo control basado en iPro IPG208}: el control programado en el apartado anterior, destinado a la UTA.
 \end{itemize}
 
@@ -665,7 +666,14 @@ void loop()
 
 \end{lstlisting}
 
-En el \hyperref[chap:anexoLibreriaBridge]{Anexo~\ref{chap:anexoLibreriaBridge}} se describe la lógica de funcionamiento de esta librería.
+En el \hyperref[figura:flujoLibreriaPuente]{Figura~\ref{figura:flujoLibreriaPuente}} se describe la lógica de funcionamiento de esta librería.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=15cm, keepaspectratio]{img/flujoProgramaPrincipal}
+  \caption{Flujo de programa pasarela TCP-RTU}
+  \label{figura:flujoLibreriaPuente}
+\end{figure}
 
 \subsection{Código principal}
 \label{subsec:mainCodeKiwi}
@@ -699,4 +707,53 @@ La \hyperref[figura:esquemaConexion]{Figura~\ref{figura:esquemaConexion}} siguie
   \label{figura:esquemaConexion}
 \end{figure}
 
-La \hyperref[figura:esquemaConexion]{Figura~\ref{figura:esquemaConexion}} a \hyperref[figura:esquemaConexion]{Figura~\ref{figura:esquemaConexion}} muestra el proceso de creación de una instalación en la plataforma IoT de kiconex y la \hyperref[figura:esquemaConexion]{Figura~\ref{figura:esquemaConexion}} a \hyperref[figura:esquemaConexion]{Figura~\ref{figura:esquemaConexion}} el proceso de adición de equipos a la misma. Finalmente, la instalación tiene el aspecto de la \hyperref[figura:esquemaConexion]{Figuraxxx~\ref{figura:esquemaConexion}}.
+La \hyperref[figura:creacionInstalacion1]{Figura~\ref{figura:creacionInstalacion1}} y la \hyperref[figura:creacionInstalacion2]{Figura~\ref{figura:creacionInstalacion2}} muestran el proceso de creación de una instalación en la plataforma IoT de kiconex y la \hyperref[figura:adicionDispositivo1]{Figura~\ref{figura:adicionDispositivo1}} y la \hyperref[figura:adicionDispositivo2]{Figura~\ref{figura:adicionDispositivo2}} el proceso de adición de dispositivos a la misma. Se observa como cada instalación necesita un \textit{UUID} único y específico del kibox al que se enlaza, además de una configuración de los posibles puertos de los que disponga dicho modelo de kibox. Por otro lado, el dispositivo necesita que se especifique su configuración Modbus: TCP o RTU, IP, dirección, puerto, etc. Finalmente, la instalación tiene el aspecto de la \hyperref[figura:instalcionCreada]{Figura~\ref{figura:instalcionCreada}}.
+
+
+
+\vspace*{\fill}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/creacionInstalacionGeneral}
+  \caption{Creación instalación en plataforma IoT - Datos generales}
+  \label{figura:creacionInstalacion1}
+\end{figure}
+
+\vspace*{\fill}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/creacionInstalacionHardware}
+  \caption{Creación instalación en plataforma IoT - Hardware kibox}
+  \label{figura:creacionInstalacion2}
+\end{figure}
+
+\vspace*{\fill}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/creacionDispositivoGeneral}
+  \caption{Adición de dispositivo a la instalación - Datos generales}
+  \label{figura:adicionDispositivo1}
+\end{figure}
+
+\vspace*{\fill}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/creacionDispositivoProtocolo}
+  \caption{Adición de dispositivo a la instalación - Datos Modbus dispositivo}
+  \label{figura:adicionDispositivo2}
+\end{figure}
+
+\vspace*{\fill}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio]{img/instalacionConectada}
+  \caption{Instalación supermercado creada}
+  \label{figura:instalcionCreada}
+\end{figure}
+
+\vspace*{\fill}
