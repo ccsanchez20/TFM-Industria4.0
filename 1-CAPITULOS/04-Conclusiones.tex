@@ -9,5 +9,38 @@
 \label{chap:conclusiones} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 % \addcontentsline{toc}{chapter}{Introducción, Objetivos, Metodología y Planificación}
 
-En este Trabajo Fin de Máster, se presenta un nuevo dispositivo que actúa como pasarela de Modbus TCP inalámbrico a Modbus RTU. 
+En este Trabajo Fin de Máster, se desarrolla una red basada en kiconex para un supermercado. Una parte de los equipos del establecimiento se han instalado siguiendo la estructura estándar de una red kiconex, sin embargo, para determinados equipos, se ha innovado a través del desarrollo de un nuevo hardware inalámbrico, bautizado con el nombre de kiwi. Además, para la Unidad de Tratamiento de Aire del supermercado, también se ha programado un control a medida, siguiendo las especificaciones de funcionamiento del cliente. Todo esto ha permitido cumplir con los objetivos que se plantearon al comienzo del documento, obteniendo una instalación que reúne las siguientes características:
+
+\begin{itemize}
+    \item Monitorización de valores en la plataforma IoT: temperaturas, estados dispositivos, alarmas, etc.
+    \item Visualización de valores en el tiempo, en forma de gráficas.
+    \item Control remoto de dispositivos: ON/OFF, reinicio de alarmas, etc.
+    \item Cambios de consigna y configuración de parámetros de forma remota.
+    \item Alertas frente a alarmas.
+    \item Funcionamiento programado a través de reglas.
+\end{itemize}
+
+En el proceso de desarrollo se ha introducido la plataforma IoT de kiconex, donde se crea y visualiza la instalación. Además, se han presentado los entornos de programación de ISaGRAF y Visoprog, mediante los cuales se programa un control como el iPro.
+
+% Pruebas realizadas
+
+Se han llevado ha cabo las pruebas necesarias para verificar el correcto funcionamiento del kiwi, y en este proceso también se ha puesto de manifiesto la necesidad de una correcta configuración de red, haciendo indispensable la presencia de personal con conocimientos de redes en la puesta en marcha de cualquier instalación que incluya un dispositivo como éste.
+
+Se ha verificado el funcionamiento del software de la UTA sobre un simulador físico real, compuesto del mismo control iPro con su pantalla. Esto asegura el correcto funcionamiento cuando se carga el programa en el control final.
+
+Finalmente, como se ha explicado en el capítulo 3xxx, la puesta en marcha ha sido rápida tras configurar en cada elemento del supermercado su correspondiente dirección Modbus. En dicha puesta en marcha, los elementos que afectan a la conectividad con la plataforma IoT son:
+
+\begin{itemize}
+    \item En caso de equipos Modbus RTU: 
+    \begin{itemize}
+        \item Resistencias de terminación.
+        \item Conexión de equipos en cadena.
+    \end{itemize}
+    \item En caso de equipos Modbus TCP: todos los equipos en el mismo rango de IPs que el kibox.
+    \item Configuración de la red del kibox: apertura de los puertos de salida necesarios.
+\end{itemize}
+
+
+
+
 
