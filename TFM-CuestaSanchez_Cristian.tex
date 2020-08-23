@@ -128,7 +128,7 @@
 
 \title{Memoria Proyecto Fin de Máster}
 \author{Cristian Cuesta Sánchez}
-\date{Julio de 2020}
+\date{Agosto de 2020}
 
 %% INFO PORTADA
 \Universidad{Universidad de Córdoba}  % Por omisión: Universidad de Sevilla
@@ -197,69 +197,61 @@
 %  Para firmar 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
- \clearpage
- \pagenumbering{gobble}
- \chapter*{}
+  \clearpage
+  \pagenumbering{gobble}
+%  \chapter*{}
 
- \vspace{-4cm}
- \begin{center}
- \LARGE
- \textbf \trabajo
+%  \vspace{-4cm}
+%  \begin{center}
+%  \LARGE
+%  \textbf \trabajo
 
- \vspace{1cm}
- \large
- \titulotrabajo
+%  \vspace{1cm}
+%  \large
+%  \titulotrabajo
 
- \vspace{1cm}
- \large
- \textbf{Autor :} \theauthor \\
- \textbf{Tutor :} \director
+%  \vspace{1cm}
+%  \large
+%  \textbf{Autor :} \theauthor \\
+%  \textbf{Tutor :} \director
 
- \end{center}
+%  \end{center}
 
- \vspace{1cm}
- La defensa del presente \trabajo\ se realizó el día \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 2020, siendo calificada por el siguiente tribunal:
-
-
- \vspace{0.5cm}
- \textbf{Presidente:}
-
- \vspace{1.2cm}
- \textbf{Secretario:}
-
- \vspace{1.2cm}
- \textbf{Vocal:}
-
- \vspace{1.2cm}
- \textbf{Suplente 1:}
-
- \vspace{1.2cm}
- \textbf{Suplente 2:}
+%  \vspace{1cm}
+%  La defensa del presente \trabajo\ se realizó el día \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 2020, siendo calificada por el siguiente tribunal:
 
 
- \vspace{0.5cm}
- y habiendo obtenido la siguiente calificación:
+%  \vspace{0.5cm}
+%  \textbf{Presidente:}
 
- \vspace{1cm}
- \textbf{Calificación:}
+%  \vspace{1.2cm}
+%  \textbf{Secretario:}
+
+%  \vspace{1.2cm}
+%  \textbf{Vocal:}
+
+%  \vspace{1.2cm}
+%  \textbf{Suplente 1:}
+
+%  \vspace{1.2cm}
+%  \textbf{Suplente 2:}
 
 
- \vspace{1cm}
- \begin{flushright}
- En \lugar, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 2020
- \end{flushright}
+%  \vspace{0.5cm}
+%  y habiendo obtenido la siguiente calificación:
+
+%  \vspace{1cm}
+%  \textbf{Calificación:}
+
+
+%  \vspace{1cm}
+%  \begin{flushright}
+%  En \lugar, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 2020
+%  \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Dedicatoria 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
- \chapter*{}
-  % para comenzar la numeración de paginas en números romanos
- \begin{flushright}
- \textit{Dedicado a \\
- mi familia / mi abuelo / mi abuela}
- \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Agradecimientos 
@@ -275,8 +267,27 @@
  %\pagenumbering{Roman}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ÍNDICES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Los índices se generan automáticamente.
+%  Lo único que tienes que hacer es elegir cuáles quieren que se generen,
+%  y comentar/descomentar esa instrucción de LaTeX.
+
+\pagenumbering{Roman}
+
  %%%% Índice de contenidos
- \tableofcontents 
+\tableofcontents 
+\addcontentsline{toc}{chapter}{\contentsname}
+%%%% Índice de figuras
+\cleardoublepage
+%\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
+\listoffigures % indice de figuras
+%%%% Índice de tablas
+%\cleardoublepage
+%\addcontentsline{toc}{chapter}{Lista de tablas} % para que aparezca en el indice de contenidos
+\listoftables % indice de tablas
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Resumen 
@@ -289,27 +300,6 @@
 %  ABSTRACT 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \input{./0-INICIO/02-abstract}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ÍNDICES
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%  Los índices se generan automáticamente.
-%  Lo único que tienes que hacer es elegir cuáles quieren que se generen,
-%  y comentar/descomentar esa instrucción de LaTeX.
-
- 
- \addcontentsline{toc}{chapter}{\listfigurename}
- %%%% Índice de figuras
- \cleardoublepage
- %\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
- \listoffigures % indice de figuras
- %%%% Índice de tablas
- %\cleardoublepage
- %\addcontentsline{toc}{chapter}{Lista de tablas} % para que aparezca en el indice de contenidos
- \listoftables % indice de tablas
 
  
 

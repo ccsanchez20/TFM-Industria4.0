@@ -13,7 +13,14 @@
 \section{Pruebas control UTA}
 \label{sec:pruebasUTA}
 
-Tras realizar el programa y el diseño de la pantalla para el control de la UTA, estos se cargan en un simulador como el de la figura xxx, que se compone de un iPro y una pantalla para pruebas. Dado que el programa se ha simulado previamente en el software ISaGRAF, no se han encontrado problemas de funcionamiento en él, sin embargo, es habitual y así ha sido en este caso, encontrar errores de diseño en la pantalla, que se han pasado por alto durante su creación. Estos problemas se han corregido desde el software Visoprog y se han vuelto a cargar.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth, keepaspectratio]{img/simuladorIpro}
+  \caption{Simulador de pruebas para iPro}
+  \label{figura:simulador}
+\end{figure}
+
+Tras realizar el programa y el diseño de la pantalla para el control de la UTA, estos se cargan en un simulador como el de la \hyperref[figura:simulador]{Figura~\ref{figura:simulador}}, que se compone de un iPro y una pantalla para pruebas. Dado que el programa se ha simulado previamente en el software ISaGRAF, no se han encontrado problemas de funcionamiento en él, sin embargo, es habitual y así ha sido en este caso, encontrar errores de diseño en la pantalla, que se han pasado por alto durante su creación. Estos problemas se han corregido desde el software Visoprog y se han vuelto a cargar.
 
 Cuando el resultado de las pruebas es bueno, desde fábrica realizan un cuadro nuevo con iPro, al que se le carga el programa realizado tras comprobar que el iPro funciona correctamente. Este cuadro se envía al cliente, en este caso el instalador al cargo del supermercado.
 
@@ -53,7 +60,7 @@ En las primeras pruebas del kiwi, se han descubierto varios problema y/o necesid
 \clearpage
 
 \section{Puesta en marcha de la instalación}
-\label{sec:altaInstalación}
+\label{sec:altaInstalacion}
 
 Cuando se conectan todos los dispositivos de la instalación, es momento de su puesta en marcha y de comprobar que todo está correctamente. Se trata de un trámite necesario, ya que aunque normalmente no da problemas, existen ocasiones en las que falla la conexión por causas ajenas a kiconex: resistencias de extremo de cable modbus, direcciones Modbus no configuradas en los equipos correctamente, etc. En este caso, el mapa de direcciones Modbus es el de la \hyperref[tab:direccionesModbus]{Tabla~\ref{tab:direccionesModbus}}.
 
