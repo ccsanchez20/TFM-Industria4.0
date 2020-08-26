@@ -20,15 +20,15 @@ En este Trabajo Fin de Máster, se desarrolla una red basada en kiconex para un 
     \item Funcionamiento programado a través de reglas.
 \end{itemize}
 
-En el proceso de desarrollo se ha introducido la plataforma IoT de kiconex, donde se crea y visualiza la instalación. Además, se han presentado los entornos de programación de ISaGRAF y Visoprog, mediante los cuales se programa un control como el iPro.
+En el proceso de desarrollo se ha presentado la plataforma IoT de kiconex, donde se crea y visualiza la instalación. Además, se ha hecho una Introducción a los entornos de programación de ISaGRAF y Visoprog, mediante los cuales se programa el control iPro de Dixell.
 
 % Pruebas realizadas
 
-Se han llevado ha cabo las pruebas necesarias para verificar el correcto funcionamiento del kiwi, y en este proceso también se ha puesto de manifiesto la necesidad de una correcta configuración de red, haciendo indispensable la presencia de personal con conocimientos de redes en la puesta en marcha de cualquier instalación que incluya un dispositivo como éste.
+Se han llevado ha cabo las pruebas necesarias para verificar el correcto funcionamiento del kiwi, y en este proceso también se ha puesto de manifiesto la necesidad de una correcta configuración de red, haciendo indispensable la presencia de personal con conocimientos de redes en la puesta en marcha de cualquier instalación que incluya un dispositivo como este.
 
-Se ha verificado el funcionamiento del software de la UTA sobre un simulador físico real, compuesto del mismo control iPro con su pantalla. Esto asegura el correcto funcionamiento cuando se carga el programa en el control final.
+Se ha verificado el funcionamiento del software de la UTA sobre un simulador físico real, compuesto del mismo control iPro con su pantalla. Esto asegura el correcto funcionamiento cuando se carga el programa en el control final del cliente.
 
-Finalmente, como se ha explicado en el \hyperref[sec:altaInstalacion]{capítulo 3}, la puesta en marcha ha sido rápida tras configurar en cada elemento del supermercado su correspondiente dirección Modbus. En dicha puesta en marcha, los elementos que afectan a la conectividad con la plataforma IoT son:
+Finalmente, como se ha explicado en el \hyperref[sec:altaInstalacion]{capítulo 3}, la puesta en marcha ha sido rápida, tras configurar en cada elemento del supermercado su correspondiente dirección Modbus. En dicha puesta en marcha, los elementos tenidos en cuenta en la conectividad con la plataforma IoT son:
 
 \begin{itemize}
     \item En caso de equipos Modbus RTU: 
@@ -40,7 +40,11 @@ Finalmente, como se ha explicado en el \hyperref[sec:altaInstalacion]{capítulo 
     \item Configuración de la red del kibox: apertura de los puertos de salida necesarios.
 \end{itemize}
 
+Todo el proyecto ha seguido la filosofía de funcionamiento de una red con kiconex. El nuevo módulo kiwi programado supone un gran avance en la estructura de dicha red y da la posibilidad de llegar a clientes con otras necesidades. En este caso, como desarrollo futuro, se podría adaptar para gestionar equipos Modbus RTU (a través del conversor RS485) al mismo tiempo que equipos Modbus TCP (a través del puerto Ethernet).
 
+Por otro lado, el programa realizado para el kiwi se apoya en librerías existentes para el chip ESP32. Para dichas librerías, se han detectado en este proyecto problemas de funcionamiento, por lo que, a modo de trabajo futuro, se podría trabajar sobre sus códigos para solucionarlos. Estos problemas de funcionamiento no han afectado al desarrollo del programa del kiwi dado que se pueden paliar mediante otros métodos más rápidos y que han resultado eficaces. En concreto, los problemas están en el paso de un modo de conexión a otro (de modo AP a modo cliente, por ejemplo), y en la desconexión y reconexión WiFi, es decir, la primera configuración de red se realiza sin problemas, pero no es así cuando se desea cambiar a una configuración distinta partiendo de una anterior.
+
+% Trabajos futuros xxx
 
 
 

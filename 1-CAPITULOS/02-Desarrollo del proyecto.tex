@@ -36,16 +36,16 @@ Como ya se ha explicado en los capítulos anteriores, el destino del iPro es la 
     \end{center}
   \end{table}
 
-La lógica de funcionamiento sigue las siguientes pautas:
+Las especificaciones de funcionamiento son las siguientes:
 
 \begin{itemize}
   \item \textbf{Compuertas:} No existen compuertas regulables.
-  \item \textbf{Filtros:} La señal digital de los filtros indica si están sucios o no.
+  \item \textbf{Filtros:} La señal digital de los filtros indica si están sucios o no. Existen tres filtros: de entrada de aire, de retorno de aire y de impulsión de aire.
   \item \textbf{Ventiladores:} 
   \begin{itemize}
-    \item La velocidad de los ventiladores se regula mediante una señal 0-10V, dicha velocidad debe ser la misma en cada momento.
+    \item La velocidad de los ventiladores se regula mediante una señal 0-10V. Existen dos ventiladores, uno para la entrada y otro para la salida de aire. La velocidad de ambos debe estar coordinada y ser la misma en cada momento.
     \item La señal digital en los ventiladores indica fallo en los mismos.
-    \item La velocidad debe ser regulable de forma automática o de forma manual:
+    \item La velocidad debe ser ajustable de forma automática o de forma manual:
     \begin{itemize}
       \item La regulación automática ajusta la velocidad del ventilador en función de la diferencia de temperatura con la consigna.
       \item La regulación manual de la velocidad se establece en tres rangos parametrizables: alta, media y baja.
@@ -79,7 +79,7 @@ La lógica de funcionamiento sigue las siguientes pautas:
 
 
 
-El \hyperref[chap:anexoProgramaUTA]{Anexo~\ref{chap:anexoProgramaUTA}} recoge parte del programa realizado para el funcionamiento de la UTA. Los parámetros necesarios para la configuración del controlador son los de la \hyperref[tab:parametrosUTA]{Tabla~\ref{tab:parametrosUTA}}.
+El \hyperref[chap:anexoProgramaUTA]{Anexo~\ref{chap:anexoProgramaUTA}} presenta la lógica de funcionamiento del programa de la UTA. Los parámetros necesarios para la configuración del controlador son los de la \hyperref[tab:parametrosUTA]{Tabla~\ref{tab:parametrosUTA}}.
 
 \begin{center}
   \begin{longtable}{|p{3cm}|p{3cm}|p{9cm}|}
@@ -118,28 +118,28 @@ El \hyperref[chap:anexoProgramaUTA]{Anexo~\ref{chap:anexoProgramaUTA}} recoge pa
       & \centering\textbf{FAN06} & Establecer banda de velocidad para la regulación
       automática \\ \cline{2-3}
       & \centering\textbf{FAN07} & Tiempo de retardo de activación de alarma en
-      ventilador de impulsión en segundos \\ \cline{2-3}
+      ventilador de impulsión, en segundos \\ \cline{2-3}
       & \centering\textbf{FAN08} & Tiempo de retardo de desactivación de alarma en
-      ventilador de impulsión en segundos \\ \cline{2-3}
+      ventilador de impulsión, en segundos \\ \cline{2-3}
       & \centering\textbf{FAN09} & Número de alarmas en el ventilador de impulsión
       hasta bloqueo \\ \cline{2-3}
       & \centering\textbf{FAN10} & Tiempo de retardo de activación de alarma en
-      ventilador de retorno en segundos \\ \cline{2-3}
+      ventilador de retorno, en segundos \\ \cline{2-3}
       & \centering\textbf{FAN11} & Tiempo de retardo de desactivación de alarma en
-      ventilador de retorno en segundos \\ \cline{2-3}
+      ventilador de retorno, en segundos \\ \cline{2-3}
       & \centering\textbf{FAN12} & Número de alarmas en el ventilador de retorno
       hasta bloqueo \\ \hline
       \multirow{6}{*}{\centering{Filtros}} & \centering\textbf{FIL01} & Retardo de activación de aviso en filtro de entrada
       de aire en segundos \\ \cline{2-3}
-      & \centering\textbf{FIL02} & Retardo de desactivación de alarma en filtro de
+      & \centering\textbf{FIL02} & Retardo de desactivación de aviso en filtro de
       entrada de aire en segundos \\ \cline{2-3}
       & \centering\textbf{FIL03} & Retardo de activación de aviso en filtro de
       impulsión de aire en segundos \\ \cline{2-3}
-      & \centering\textbf{FIL04} & Retardo de desactivación de alarma en filtro de
+      & \centering\textbf{FIL04} & Retardo de desactivación de aviso en filtro de
       impulsión de aire en segundos \\ \cline{2-3}
       & \centering\textbf{FIL05} & Retardo de activación de aviso en filtro de retorno
       de aire en segundos \\ \cline{2-3}
-      & \centering\textbf{FIL06} & Retardo de desactivación de alarma en filtro de
+      & \centering\textbf{FIL06} & Retardo de desactivación de aviso en filtro de
       retorno de aire en segundos \\ \hline
       \multirow{43}{*}\centering{Entradas digitales} & \centering\textbf{DIG01} & \footnotesize{\textbf{INV(FALSE)/DIR(TRUE)}: polaridad inversa o directa} \\ \cline{2-2}
       & \centering\textbf{DIG02} & \footnotesize{\textbf{0=No utilizado}: entrada sin función asociada} \\ \cline{2-2}
@@ -267,7 +267,9 @@ El \hyperref[chap:anexoProgramaUTA]{Anexo~\ref{chap:anexoProgramaUTA}} recoge pa
 
 \section{Diseño Pantalla para el control}
 \label{sec:programacionpantalla}
-Desde el programa Visoprog, donde se diseña la pantalla, se importan las variables del programa creado con el software ISaGRAF. Para ello, Visoprog tiene dos opciones de importación: directamente desde un proyecto ISaGRAF o desde una hoja excel o fichero csv. El diseño realizado se compone de las ventanas de la \hyperref[figura:ventanas]{Figura~\ref{figura:ventanas}}, su funcionamiento se describe en el manual del \hyperref[chap:anexoManualUTA]{Tabla~\ref{chap:anexoManualUTA}}:
+Desde el programa Visoprog, donde se diseña la pantalla, se importan las variables del programa creado con el software ISaGRAF. Para ello, Visoprog tiene dos opciones de importación: directamente desde un proyecto ISaGRAF o desde una hoja excel o fichero csv. 
+
+El diseño realizado se compone de las ventanas de la \hyperref[figura:ventanas]{Figura~\ref{figura:ventanas}}, su funcionamiento se describe en el manual del \hyperref[chap:anexoManualUTA]{Anexo~\ref{chap:anexoManualUTA}}:
 
 \begin{figure}[H]
   \centering
@@ -338,13 +340,13 @@ En el capítulo anterior se explicaba que son necesarias librerías que recopile
   \item \textbf{Dixell XW60VS}: para cámaras frigoríficas y obradores.
   \item \textbf{Dixell XR-75}: para murales, semimurales, vitrinas e islas de congelados.
   \item \textbf{Danfoss AK-PC-551}: para la central de refrigeración.
-  \item \item \textbf{Keyter Climanager Aire-Aire}: para la bomba de calor.
+  \item \textbf{Keyter Climanager Aire-Aire}: para la bomba de calor.
   \item \textbf{Nuevo control basado en iPro IPG208}: el control programado en el apartado anterior, destinado a la UTA.
 \end{itemize}
 
 Para todos los controles existen ya librerías preparadas en kiconex, excepto para el iPro de la UTA, para el que hay que crearla a partir del programa realizado. 
 
-ISaGRAF permite exportar un recopilatorio de variables en formato PDF. La mayoría de lo que aparece en dicho PDF se puede omitir en la librería por tratarse de parámetros por defecto del control, por lo que se han recopilado en el \hyperref[chap:anexoRegistrosUTA]{Tabla~\ref{chap:anexoRegistrosUTA}} los registros que sí hay que tener en cuenta. Para añadir dichos registros a una librería, es necesario completar los siguientes campos de la pestaña librerías en la plataforma IoT:
+ISaGRAF permite exportar un recopilatorio de variables en formato PDF. La mayoría de lo que aparece en dicho PDF se puede omitir en la librería por tratarse de parámetros por defecto del control, por lo que se han recopilado en la \hyperref[chap:anexoRegistrosUTA]{Tabla~\ref{chap:anexoRegistrosUTA}} los registros que sí hay que tener en cuenta. Para añadir dichos registros a una librería, es necesario completar los siguientes campos de la pestaña librerías en la plataforma IoT:
 
 \begin{itemize}
   \item Nombre\footnote[1]{Campo obligatorio.}
@@ -363,9 +365,9 @@ ISaGRAF permite exportar un recopilatorio de variables en formato PDF. La mayor�
   \item Metadatos
 \end{itemize}
 
-La \textit{categoría} clasifica clasifica al registro en función de su naturaleza (E/S, Parámetro, Alarma, etc.), y el \textit{grupo} lo clasifica en función de la aplicación (ejemplo: ventiladores, compresores, etc.). Los campos \textit{offset}, \textit{mácara} y \textit{valor} permiten hacer un tratamiento del valor que se lee o que se va a escribir, lo que es útil en situaciones en las que, por ejemplo, solo se quiere escribir un bit concreto de un campo de 8 bits, o cuando se leen datos de temperatura con campos decimales (el valor leído necesita la aplicación de un offset que indique cuántos decimales tiene).
+La \textit{categoría} clasifica al registro en función de su naturaleza (E/S, Parámetro, Alarma, etc.), y el \textit{grupo} lo clasifica en función de la aplicación (ejemplo: ventiladores, compresores, etc.). Los campos \textit{offset}, \textit{máscara} y \textit{valor} permiten hacer un tratamiento del valor que se lee o que se va a escribir, lo que es útil en situaciones en las que, por ejemplo, solo se quiere escribir un bit concreto de un campo de 8 bits, o cuando se leen datos de temperatura con campos decimales (el valor leído necesita la aplicación de un offset que indique cuántos decimales tiene).
 El campo \textit{icono} permite tener un icono asociado al valor de cara a los diagramas de la plataforma.
-Los \textit{metadatos} asocian valores a un campo de texto o a un icono. Por ejemplo, el estado de un ventilador se asocia a dos iconos: uno de un ventilador apagado y otro de un ventilador encendido, lo que hace que en la ventana principal se indique el estado de dicho ventilador a través de un icono en lugar de un valor, lo que lo hace más visual. Esto se aplica también a los diagramas. 
+Los \textit{metadatos} asocian valores a un campo de texto o a un icono. Por ejemplo, el estado de un ventilador se asocia a dos iconos: uno de un ventilador apagado y otro de un ventilador encendido, lo que hace que en la ventana principal se indique el estado de dicho ventilador a través de un icono en lugar de un valor, haciéndolo más visual. Esto se aplica también a los diagramas. 
 
 \hspace{1em}
 
@@ -408,7 +410,7 @@ El aspecto de la interfaz  para introducir los campos anteriores son los de las 
 
 \section{Programación dispositivo wireless}
 \label{sec:programacionesp32}
-Llegados a este punto, hay que buscar la forma de conectar de forma inalámbrica los muebles de refrigeración: murales de lácteos, vitrinas expositoras, semimurales e islas de congelados. Para ello se ha diseñado un nuevo dispositivo que se conecta de forma cableada al control del equipo y de forma inalámbrica a través de una red WiFi. Ya se describió en el capítulo anterior el hardware a emplear, el ESP32-PoE de Olimex, y se explicó el funcionamiento de una red kiconex. Es por ello que el software del ESP32 debe tener una serie de requisitos:
+Llegados a este punto, hay que buscar la forma de conectar de forma inalámbrica los muebles de refrigeración: murales de lácteos, vitrinas expositoras, semimurales e islas de congelados. Para ello se ha diseñado un nuevo dispositivo que se conecta de forma cableada al control del equipo deseado e intercambia información con la plataforma IoT a través de una red WiFi. Ya se describió en el \hyperref[chap:estadoArte]{capítulo anterior} el hardware a emplear, el ESP32-PoE de Olimex, y se explicó el funcionamiento de una red kiconex. Es por ello que el software del ESP32 debe tener una serie de requisitos:
 
 \begin{itemize}
   \item Comunicación: debe disponer de una interfaz de configuración de red, tanto de la red Modbus como de la red TCP/IP.
@@ -417,9 +419,9 @@ Llegados a este punto, hay que buscar la forma de conectar de forma inalámbrica
   \item Respuesta: es necesario repetir el proceso a la inversa: recibir la respuesta a la trama enviada por Modbus RTU, extraer la información y reenviarla como respuesta a la trama Modbus TCP recibida previamente desde el Maestro kibox.
 \end{itemize}
 
-\subsection{Librería para interfaz de configuración}
+\subsection{Librería para la interfaz de configuración}
 \label{subsec:interfazKiwi}
-Para la interfaz se parte de la librería WiFiManager de Khoi Hoang~\cite{libreriaWiFigithub} \href{https://github.com/khoih-prog/ESP_WiFiManager}{(consultar su enlace en la bibliografía para más información)}. Dicha librería ha sido configurada por completo para adaptarla a las necesidades de diseño del kiwi:
+Para la interfaz se parte de la librería WiFiManager de Khoi Hoang~\cite{libreriaWiFigithub} \href{https://github.com/khoih-prog/ESP_WiFiManager}{(consultar su enlace en la bibliografía para más información)}. Dicha librería ha sido modificada por completo para adaptarla a las necesidades de diseño del kiwi:
 
 \begin{enumerate}
   \item Interfaz en cualquier modo: accesible tanto en modo AP (para realizar la configuración), como en modo cliente WiFi (para ver y cambiar la configuración realizada).
@@ -629,7 +631,9 @@ Para esto se ha empleado la librería Modbus RTU del usuario smarmengol (Samuel 
 \subsection{Librería para esclavo Modbus TCP}
 \label{subsec:esclavoTCPkiwi}
 
-En este caso se ha diseñado por completo una librería cuya función es esperar la recepción de mensajes a través de TCP/IP a la IP del dispositivo, procesar esos mensajes y enviarlos vía Modbus RTU empleando la librería anterior. Es decir se trata de una librería puente, por lo que se ha bautizado con el nombre de KiWiModbusBridge. Su uso dentro del código principal es el siguiente:
+En este caso se ha diseñado por completo una librería cuya función es esperar la recepción de mensajes transmitidos por TCP/IP y con destino a la IP concreta del dispositivo. Estos mensajes son procesados y enviados vía Modbus RTU empleando la librería \textit{Modbus RTU} del apartado anterior. Es decir se trata de una librería puente, por lo que se ha bautizado con el nombre de KiWiModbusBridge. Su uso dentro del código principal es el siguiente:
+
+\vspace*{\fill}
 
 \begin{lstlisting}
 // Modbus bridge library
@@ -666,12 +670,16 @@ void loop()
 
 \end{lstlisting}
 
-En el \hyperref[figura:flujoLibreriaPuente]{Figura~\ref{figura:flujoLibreriaPuente}} se describe la lógica de funcionamiento de esta librería.
+\vspace*{\fill}
+
+\clearpage
+
+En la \hyperref[figura:flujoLibreriaPuente]{Figura~\ref{figura:flujoLibreriaPuente}} se describe la lógica de funcionamiento de esta librería:
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=15cm, keepaspectratio]{img/flujoProgramaPrincipal}
-  \caption{Flujo de programa pasarela TCP-RTU}
+  \includegraphics[width=10cm, keepaspectratio]{img/flujoLibreriaPuente}
+  \caption{Flujo de programa pasarela TCP-RTUxxx}
   \label{figura:flujoLibreriaPuente}
 \end{figure}
 
@@ -691,7 +699,7 @@ El código principal del software de kiwi se encarga de integrar cada una de las
 \subsection{Integración de todos los elementos del sistema}
 \label{subsec:integracionComponentes}
 
-Ya esta todo listo para conectarlo a la red kiconex. Como ya se ha mencionado, los equipos del supermercado se comunican con la plataforma a través del kibox y del kiwi. Por ello, lo primero es crear la instalación del supermecado en la plataforma IoT, utilizando un id único de cada kibox, y después se añaden a dicha instalación cada uno de los equipos: 
+Ya esta todo listo para conectarlo a la red kiconex. Como ya se ha mencionado, los equipos del supermercado se comunican con la plataforma a través del kibox y del kiwi. Por ello, lo primero es crear la instalación del supermecado en la plataforma IoT, utilizando el id único de cada kibox, y después se añaden a dicha instalación cada uno de los equipos: 
 
 \begin{itemize}
   \item Las centrales, las cámaras de refrigeración y los equipos de clima, se conectan de forma cableada al kibox a través de Modbus RTU, por lo que en la plataforma se añaden indicando su librería de registros y el puerto y la dirección Modbus.
@@ -707,7 +715,7 @@ La \hyperref[figura:esquemaConexion]{Figura~\ref{figura:esquemaConexion}} siguie
   \label{figura:esquemaConexion}
 \end{figure}
 
-La \hyperref[figura:creacionInstalacion1]{Figura~\ref{figura:creacionInstalacion1}} y la \hyperref[figura:creacionInstalacion2]{Figura~\ref{figura:creacionInstalacion2}} muestran el proceso de creación de una instalación en la plataforma IoT de kiconex y la \hyperref[figura:adicionDispositivo1]{Figura~\ref{figura:adicionDispositivo1}} y la \hyperref[figura:adicionDispositivo2]{Figura~\ref{figura:adicionDispositivo2}} el proceso de adición de dispositivos a la misma. Se observa como cada instalación necesita un \textit{UUID} único y específico del kibox al que se enlaza, además de una configuración de los posibles puertos de los que disponga dicho modelo de kibox. Por otro lado, el dispositivo necesita que se especifique su configuración Modbus: TCP o RTU, IP, dirección, puerto, etc. Finalmente, la instalación tiene el aspecto de la \hyperref[figura:instalcionCreada]{Figura~\ref{figura:instalcionCreada}}.
+La \hyperref[figura:creacionInstalacion1]{Figura~\ref{figura:creacionInstalacion1}} y la \hyperref[figura:creacionInstalacion2]{Figura~\ref{figura:creacionInstalacion2}} muestran el proceso de creación de una instalación en la plataforma IoT de kiconex y la \hyperref[figura:adicionDispositivo1]{Figura~\ref{figura:adicionDispositivo1}} y la \hyperref[figura:adicionDispositivo2]{Figura~\ref{figura:adicionDispositivo2}} el proceso de adición de dispositivos a la misma. Se observa como cada instalación necesita ese \textit{UUID} único y específico del kibox al que se enlaza, además de una configuración de los posibles puertos de los que disponga dicho modelo de kibox. Por otro lado, el dispositivo necesita que se especifique su configuración Modbus: TCP o RTU, IP, dirección, puerto, etc. Finalmente, la instalación tiene el aspecto de la \hyperref[figura:instalcionCreada]{Figura~\ref{figura:instalcionCreada}}.
 
 
 

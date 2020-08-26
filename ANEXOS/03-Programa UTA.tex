@@ -16,11 +16,11 @@
     \label{figura:sasssssd}
 \end{figure}
 
-El programa para el control de la UTA se ha realizado el software ISaGRAF, que emplea los lenguajes de estándar IEC61131:                   
+El programa para el control de la UTA se ha realizado el software ISaGRAF, que emplea los lenguajes de la norma IEC61131:                   
 
 \begin{itemize}
     \item (\textbf{LD}) Escalera  
-    \item (\textbf{FBD}) Diagrama a Bloques 
+    \item (\textbf{FBD}) Diagrama de Bloques 
     \item (\textbf{SFC}) Tabla de Funciones Secuenciales 
     \item (\textbf{ST}) Texto Estructurado 
     \item (\textbf{IL}) Lista de Instrucciones 
@@ -88,6 +88,11 @@ En este anexo se muestran las variables configuradas (\hyperref[tab:variablesUTA
 
 \clearpage
 
+La \hyperref[figura:gestionVentiladores]{Figura~\ref{figura:gestionVentiladores}~siguiente} muestra el flujo de programa para la función encargada de analizar si los ventiladores están habilitados y sin fallos, para enviarles la velocidad deseada. Esta función será llamada desde el módulo encargado de decidir qué velocidad es la deseada en los ventiladores (\hyperref[figura:gestionVelocidadVentiladores]{Figura~\ref{figura:gestionVelocidadVentiladores}}): la velocidad puede ser baja, media, alta o el resultado del control automático de la \hyperref[figura:gestionAutomatica]{Figura~\ref{figura:gestionAutomatica}}. 
+
+Por último, el humectador se controla según la lógica de la \hyperref[figura:gestionHumectador]{Figura~\ref{figura:gestionHumectador}}.
+
+
 \vspace*{\fill}
 
 \begin{figure}[H]
@@ -99,9 +104,6 @@ En este anexo se muestran las variables configuradas (\hyperref[tab:variablesUTA
 
    \vspace*{\fill}
 
-La \hyperref[figura:gestionVentiladores]{Figura~\ref{figura:gestionVentiladores}~anterior} muestra el flujo de programa para la función encargada de analizar si los ventiladores están habilitados y sin fallos, para enviarles la velocidad deseada. Esta función será llamada desde el módulo encargado de decidir qué velocidad es la deseada en los ventiladores (\hyperref[figura:gestionVelocidadVentiladores]{Figura~\ref{figura:gestionVelocidadVentiladores}}): la velocidad puede ser baja, media, alta o el resultado del control automático de la \hyperref[figura:gestionAutomatica]{Figura~\ref{figura:gestionAutomatica}}. 
-
-Por último, el humectador se controla según la lógica de la \hyperref[figura:gestionHumectador]{Figura~\ref{figura:gestionHumectador}}.
 
 \clearpage 
 
