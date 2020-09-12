@@ -9,37 +9,55 @@
 \label{chap:datosEconomicos} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 % \addcontentsline{toc}{chapter}{Introducción, Objetivos, Metodología y Planificación
 
-Una UTA es un equipo encargado de tratar el aire atendiendo a distintos aspectos de la climatización:
+A continuación se muestran una serie de tablas que recogen el coste asociado al trabajo realizado. Por un lado, se representa el coste que ha supuesto para el cliente llevar a cabo una instalación de este tipo y por otro lado, los gastos a los que se ha enfrentado kiconex, al invertir en el desarrollo de un nuevo producto como el kiwi.
 
-\begin{itemize}
-    \item Ventilación
-    \item Filtrado
-    \item Control de temperatura
-    \item Control de humedad
-\end{itemize}
+\vspace*{\fill}
 
-Su funcionamiento da la posibilidad de regular el caudal de ventilación en función de la medición del CO2 y de las condiciones térmicas del local, así como recuperar parte de la energía térmica del aire que se expulsa al exterior.
+\begin{table}[H]
+    \begin{center}
+    \begin{tabular}{|llrrr|}
+    \hline
+    \rowcolor[HTML]{C0C0C0} 
+    \multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{Producto}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Detalles}}                                    & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Unidades}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Coste/ud.}} & \textbf{Total} \\ \hline
+    kicontrol                                                       & \begin{tabular}[c]{@{}l@{}}Cuadro con control Ipro y kibox de 2 puertos\\ Modbus RTU\end{tabular} & 1                                                              & 300 \euro                                                            & 300 \euro           \\ \hline
+    kibox2                                                          & Kiconex kibox de 2 puertos Modbus RTU                                                             & 1                                                              & 100 \euro                                                            & 100 \euro           \\ \hline
+    kiwi                                                            & Kiconex kiwi                                                                                      & 3                                                              & 60 \euro                                                             & 180 \euro            \\ \hline
+    \rowcolor[HTML]{EFEFEF} 
+    \multicolumn{4}{|r}{\cellcolor[HTML]{EFEFEF}\textbf{Coste final}}                                                                                                                                                                                                                                     & 580 \euro           \\ \hline
+    \end{tabular}
+    \caption{Costes asociados al cliente.}
+    \label{tab:costeCliente}
+\end{center}
+\end{table}
 
-Las partes de las que se compone una UTA son:
+\vspace*{\fill}
 
-\begin{itemize}
-    \item Compuertas o tomas para la entrada y salida de aire.
-    \item Zona de mezcla del aire de retorno y del aire exterior para permitir recuperar energía mediante lo que se conoce como \textit{free-cooling}. La recuperación puede ser de distintos tipos:
-    \begin{itemize}
-        \item Recuperación aire-agua: el aire extraído transfiere su calor al agua a través de un intercambiador. El mismo agua transfiere ese calor al aire introducido desde el exterior, el cual fluye por otro conducto. Este sistema es más salubre al impedir que se mezclen ambas corrientes de aire, pero tiene menor rendimiento.
-        \item Recuperación mediante placas aire-aire: a través de un cubo metálico pasan ambas corrientes de aire a modo de flujo cruzado. El calor se transfiere a través del contacto del aire con las placas metálicas de los canales.
-    \end{itemize}
-    \item Intercambiador de calor, por donde fluye agua a la temperatura deseada (frío o calor). La temperatura del agua se transfiere al aire cuando éste pasa a través del intercambiador.
-    \item Filtros, que pueden ser de distintos tipos en función de las especificaciones de filtrado.
-    \item Humectador: el paso del aire seco y caliente por un panel mojado hace que se evapore parte de su agua y se produzca aire húmedo y frío. Dispone de una bandeja de almacenamiento y recogida del agua.
-    \item Zona de ventilación, con ventilador y motor.
-\end{itemize}
+Gracias a esta inversión el cliente podrá visualizar el funcionamiento de su instalación y recibir alertas ante fallos e identificar el origen del problema. Esto también facilita el trabajo al personal de mantenimiento, que gracias a la información obtenida de la plataforma IoT de kiconex, solo tendrá que desplazarse hasta el supermecado cuando sea preciso.
 
-La siguiente figura ilustra a modo de ejemplo todos los elementos mencionados:
+En cuanto al desarrollo del nuevo producto kiconex, kiwi, se ha tenido en cuenta el coste de tener a una persona programando el software durante todo el tiempo que ha sido necesario, incluyendo un periodo de documentación y de análisis previo sobre los mensajes Modbus transmitidos por kiconex y el funcionamiento del hardware empleado. Se ha tenido en cuenta también el material empleado y un coste extra por reuniones, consultas y tiempo requerido de otro personal de kiconex. Todo esto se recoge en la \hyperref[tab:costeKiwi]{Tabla~\ref{tab:costeKiwi}~siguiente}.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth, keepaspectratio]{img/esquemaUTA}
-    \caption{Plano de partes de una UTA}
-    \label{figura:esquemaUTA}
-\end{figure}
+\vspace*{\fill}
+
+\begin{table}[H]
+    \begin{center}
+    \begin{tabular}{|l|l|r|}
+    \hline
+    \rowcolor[HTML]{C0C0C0} 
+    \multicolumn{2}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{Elemento}}    & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Coste}}       \\ \hline
+    \multicolumn{2}{|l|}{Días}                                         & 100                                                               \\ \hline
+    \multicolumn{2}{|l|}{Horas/día}                                    & 8                                                                 \\ \hline
+    \multicolumn{2}{|l|}{Coste/hora}                                   & 20 \euro                                                          \\ \hline
+    \multicolumn{2}{|l|}{Coste extra asociado}                         & 6400 \euro                                                        \\ \hline
+                                        & ESP32                        & 19.95 \euro                                                       \\
+                                        & Alimentación 5V              & 2.30 \euro                                                        \\
+                                        & Cable micro USB              & 0.90 \euro                                                        \\
+    \multirow{-4}{*}{Material}          & Adaptador UEXT-RS485         & 2.95 \euro                                                        \\ \hline
+    \rowcolor[HTML]{EFEFEF} 
+    \multicolumn{2}{|r|}{\cellcolor[HTML]{EFEFEF}\textbf{Coste final}} & 22426 \euro                                                       \\ \hline
+    \end{tabular}
+    \caption{Coste de desarrollo del kiwi.}
+    \label{tab:costeKiwi}
+    \end{center}
+\end{table}
+
+\vspace*{\fill}
