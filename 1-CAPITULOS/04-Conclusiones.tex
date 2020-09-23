@@ -24,7 +24,7 @@ En el proceso de desarrollo se ha presentado la plataforma IoT de kiconex, donde
 
 % Pruebas realizadas
 
-Se han llevado ha cabo las pruebas necesarias para verificar el correcto funcionamiento del kiwi, y en este proceso también se ha puesto de manifiesto la necesidad de una correcta configuración de red, haciendo indispensable la presencia de personal con conocimientos de redes en la puesta en marcha de cualquier instalación que incluya un dispositivo como este.
+Se han llevado a cabo las pruebas necesarias para verificar el correcto funcionamiento del kiwi, y en este proceso también se ha puesto de manifiesto la necesidad de una correcta configuración de red, haciendo indispensable la presencia de personal con conocimientos de redes en la puesta en marcha de cualquier instalación que incluya un dispositivo como este.
 
 Se ha verificado el funcionamiento del software de la UTA sobre un simulador físico real, compuesto del mismo control iPro con su pantalla. Esto asegura el correcto funcionamiento cuando se carga el programa en el control final del cliente.
 
@@ -43,6 +43,66 @@ Finalmente, como se ha explicado en el \hyperref[sec:altaInstalacion]{capítulo 
 Todo el proyecto ha seguido la filosofía de funcionamiento de una red con kiconex. El nuevo módulo kiwi programado supone un gran avance en la estructura de dicha red y da la posibilidad de llegar a clientes con otras necesidades. En este caso, como desarrollo futuro, se podría adaptar para gestionar equipos Modbus RTU (a través del conversor RS485) al mismo tiempo que equipos Modbus TCP (a través del puerto Ethernet).
 
 Por otro lado, el programa realizado para el kiwi se apoya en librerías existentes para el chip ESP32. Para dichas librerías, se han detectado en este proyecto problemas de funcionamiento, por lo que, a modo de trabajo futuro, se podría trabajar sobre sus códigos para solucionarlos. Estos problemas de funcionamiento no han afectado al desarrollo del programa del kiwi dado que se pueden paliar mediante otros métodos más rápidos y que han resultado eficaces. En concreto, los problemas están en el paso de un modo de conexión a otro (de modo AP a modo cliente, por ejemplo), y en la desconexión y reconexión WiFi, es decir, la primera configuración de red se realiza sin problemas, pero no es así cuando se desea cambiar a una configuración distinta partiendo de una anterior.
+
+
+\section{Datos económicos}
+\label{sec:datosEconomicos}
+
+A continuación se muestran una serie de tablas que recogen el coste asociado al trabajo realizado. Por un lado, se representa el coste que ha supuesto para el cliente llevar a cabo una instalación de este tipo y por otro lado, los gastos a los que se ha enfrentado kiconex, al invertir en el desarrollo de un nuevo producto como el kiwi.
+
+\vspace*{\fill}
+
+\begin{table}[H]
+    \begin{center}
+    \begin{tabular}{|llrrr|}
+    \hline
+    \rowcolor[HTML]{C0C0C0} 
+    \multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{Producto}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Detalles}}                                    & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Unidades}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Coste/ud.}} & \textbf{Total} \\ \hline
+    kicontrol                                                       & \begin{tabular}[c]{@{}l@{}}Cuadro con control Ipro y kibox de 2 puertos\\ Modbus RTU\end{tabular} & 1                                                              & 300 \euro                                                            & 300 \euro           \\ \hline
+    kibox2                                                          & Kiconex kibox de 2 puertos Modbus RTU                                                             & 1                                                              & 100 \euro                                                            & 100 \euro           \\ \hline
+    kiwi                                                            & Kiconex kiwi                                                                                      & 3                                                              & 60 \euro                                                             & 180 \euro            \\ \hline
+    \rowcolor[HTML]{EFEFEF} 
+    \multicolumn{4}{|r}{\cellcolor[HTML]{EFEFEF}\textbf{Coste final}}                                                                                                                                                                                                                                     & 580 \euro           \\ \hline
+    \end{tabular}
+    \caption{Costes asociados al cliente.}
+    \label{tab:costeCliente}
+\end{center}
+\end{table}
+
+\vspace*{\fill}
+
+Gracias a esta inversión el cliente podrá visualizar el funcionamiento de su instalación y recibir alertas ante fallos e identificar el origen del problema. Esto también facilita el trabajo al personal de mantenimiento, que gracias a la información obtenida de la plataforma IoT de kiconex, solo tendrá que desplazarse hasta el supermecado cuando sea preciso.
+
+\vspace{10mm}
+
+En cuanto al desarrollo del nuevo producto kiconex, kiwi, se ha tenido en cuenta el coste de tener a una persona programando el software durante todo el tiempo que ha sido necesario, incluyendo un periodo de documentación y de análisis previo sobre los mensajes Modbus transmitidos por kiconex y el funcionamiento del hardware empleado. Se ha tenido en cuenta también el material empleado y un coste extra por reuniones, consultas y tiempo requerido de otro personal de kiconex. Todo esto se recoge en la \hyperref[tab:costeKiwi]{Tabla~\ref{tab:costeKiwi}~siguiente}.
+
+\vspace*{\fill}
+
+\begin{table}[H]
+    \begin{center}
+    \begin{tabular}{|l|l|r|}
+    \hline
+    \rowcolor[HTML]{C0C0C0} 
+    \multicolumn{2}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{Elemento}}    & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Coste}}       \\ \hline
+    \multicolumn{2}{|l|}{Días}                                         & 100                                                               \\ \hline
+    \multicolumn{2}{|l|}{Horas/día}                                    & 8                                                                 \\ \hline
+    \multicolumn{2}{|l|}{Coste/hora}                                   & 20 \euro                                                          \\ \hline
+    \multicolumn{2}{|l|}{Coste extra asociado (40\%)}                         & 6400 \euro                                                        \\ \hline
+                                        & ESP32                        & 19.95 \euro                                                       \\
+                                        & Alimentación 5V              & 2.30 \euro                                                        \\
+                                        & Cable micro USB              & 0.90 \euro                                                        \\
+    \multirow{-4}{*}{Material}          & Adaptador UEXT-RS485         & 2.95 \euro                                                        \\ \hline
+    \rowcolor[HTML]{EFEFEF} 
+    \multicolumn{2}{|r|}{\cellcolor[HTML]{EFEFEF}\textbf{Coste final}} & 22426 \euro                                                       \\ \hline
+    \end{tabular}
+    \caption{Coste de desarrollo del kiwi.}
+    \label{tab:costeKiwi}
+    \end{center}
+\end{table}
+
+\vspace*{\fill}
+
 
 % Trabajos futuros xxx
 
